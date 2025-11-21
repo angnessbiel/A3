@@ -2,19 +2,25 @@ package DAO;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.SQLException;
 
 public class Connect {
 
-    private static final String URL = "jdbc:mysql://localhost:3306/seu_banco?useSSL=false&serverTimezone=UTC";
-    private static final String USER = "root";
-    private static final String PASS = "sua_senha";
+    public static Connection getConnection() {
 
-    public static Connection conectar() {
         try {
-            return DriverManager.getConnection(URL, USER, PASS);
-        } catch (SQLException e) {
-            throw new RuntimeException("Erro ao conectar: " + e.getMessage());
+            Class.forName("com.mysql.cj.jdbc.Driver");
+
+            Connection conn = DriverManager.getConnection(
+                "jdbc:mysql://localhost:3306/estoque_db?useSSL=false&serverTimezone=UTC",
+                "root",
+                "Mel32593599?"
+            );
+
+            return conn;
+
+        } catch (Exception e) {
+            System.out.println("Erro ao conectar: " + e.getMessage());
+            return null;
         }
     }
 }
