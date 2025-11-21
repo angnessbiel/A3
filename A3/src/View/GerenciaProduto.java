@@ -1,17 +1,17 @@
 package View;
 
-import Model.Aluno;
+import Model.Produto;
 import java.util.*;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
-public class GerenciaAluno extends javax.swing.JFrame {
+public class GerenciaProduto extends javax.swing.JFrame {
 
-    private Aluno objaluno; // cria o v�nculo com o objaluno
+    private Produto objaluno; // cria o v�nculo com o objaluno
 
-    public GerenciaAluno() {
+    public GerenciaProduto() {
         initComponents();
-        this.objaluno = new Aluno(); // carrega objaluno de aluno
+        this.objaluno = new Produto(); // carrega objaluno de aluno
         this.carregaTabela();
     }
 
@@ -300,10 +300,10 @@ public class GerenciaAluno extends javax.swing.JFrame {
         DefaultTableModel modelo = (DefaultTableModel) this.jTableAlunos.getModel();
         modelo.setNumRows(0);
 
-        ArrayList<Aluno> minhalista = new ArrayList<>();
+        ArrayList<Produto> minhalista = new ArrayList<>();
         minhalista = objaluno.getMinhaLista();
 
-        for (Aluno a : minhalista) {
+        for (Produto a : minhalista) {
             modelo.addRow(new Object[]{
                 a.getId(),
                 a.getNome(),
@@ -328,20 +328,21 @@ public class GerenciaAluno extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(GerenciaAluno.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GerenciaProduto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(GerenciaAluno.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GerenciaProduto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(GerenciaAluno.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GerenciaProduto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(GerenciaAluno.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GerenciaProduto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new GerenciaAluno().setVisible(true);
+                new GerenciaProduto().setVisible(true);
             }
         });
         

@@ -1,18 +1,18 @@
 package View;
 
-import Model.Aluno;
+import Model.Produto;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
-public class CadastroAluno extends javax.swing.JFrame {
+public class CadastroProduto extends javax.swing.JFrame {
 
-    private Aluno objaluno; // cria o v�nculo com o Aluno.java
+    private Produto objaluno; // cria o v�nculo com o Aluno.java
 
-    public CadastroAluno() {
+    public CadastroProduto() {
         initComponents();
-        this.objaluno = new Aluno(); // carrega objeto vazio de aluno
+        this.objaluno = new Produto(); // carrega objeto vazio de aluno
     }
 
     /**
@@ -198,7 +198,7 @@ public class CadastroAluno extends javax.swing.JFrame {
         } catch (NumberFormatException erro2) {
             JOptionPane.showMessageDialog(null, "Informe um n�mero.");
         } catch (SQLException ex) {
-            Logger.getLogger(CadastroAluno.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CadastroProduto.class.getName()).log(Level.SEVERE, null, ex);
         }
 
 
@@ -227,20 +227,21 @@ public class CadastroAluno extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CadastroAluno.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastroProduto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CadastroAluno.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastroProduto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CadastroAluno.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastroProduto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CadastroAluno.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastroProduto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CadastroAluno().setVisible(true);
+                new CadastroProduto().setVisible(true);
             }
         });
     }

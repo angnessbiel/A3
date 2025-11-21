@@ -1,6 +1,6 @@
 package DAO;
 
-import Model.Aluno;
+import Model.Produto;
 import java.util.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -9,11 +9,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class AlunoDAO {
+public class ProdutoDAO {
 
-    public static ArrayList<Aluno> MinhaLista = new ArrayList<Aluno>();
+    public static ArrayList<Produto> MinhaLista = new ArrayList<Produto>();
 
-    public AlunoDAO() {
+    public ProdutoDAO() {
     }
 
     public int maiorID() throws SQLException {
@@ -35,7 +35,7 @@ public class AlunoDAO {
 
     public Connection getConexao() {
 
-        Connection connection = null;  //instância da conexão
+        Connection connection = null;  //instï¿½ncia da conexï¿½o
 
         try {
 
@@ -43,7 +43,7 @@ public class AlunoDAO {
             String driver = "com.mysql.cj.jdbc.Driver";
             Class.forName(driver);
 
-            // Configurar a conexão
+            // Configurar a conexï¿½o
             String server = "localhost"; //caminho do MySQL
             String database = "db_alunos";
             String url = "jdbc:mysql://" + server + ":3306/" + database + "?useTimezone=true&serverTimezone=UTC";
@@ -56,12 +56,12 @@ public class AlunoDAO {
             if (connection != null) {
                 System.out.println("Status: Conectado!");
             } else {
-                System.out.println("Status: NÃO CONECTADO!");
+                System.out.println("Status: Nï¿½O CONECTADO!");
             }
 
             return connection;
 
-        } catch (ClassNotFoundException e) {  //Driver não encontrado
+        } catch (ClassNotFoundException e) {  //Driver nï¿½o encontrado
             System.out.println("O driver nao foi encontrado. " + e.getMessage() );
             return null;
 
@@ -87,7 +87,7 @@ public class AlunoDAO {
                 String nome = res.getString("nome");
                 int idade = res.getInt("idade");
 
-                Aluno objeto = new Aluno(curso, fase, id, nome, idade);
+                Produto objeto = new Produto(curso, fase, id, nome, idade);
 
                 MinhaLista.add(objeto);
             }
@@ -101,7 +101,7 @@ public class AlunoDAO {
     }
 
     // Cadastra novo aluno
-    public boolean InsertAlunoBD(Aluno objeto) {
+    public boolean InsertAlunoBD(Produto objeto) {
         String sql = "INSERT INTO tb_alunos(id,nome,idade,curso,fase) VALUES(?,?,?,?,?)";
 
         try {
@@ -124,7 +124,7 @@ public class AlunoDAO {
 
     }
 
-    // Deleta um aluno específico pelo seu campo ID
+    // Deleta um aluno especï¿½fico pelo seu campo ID
     public boolean DeleteAlunoBD(int id) {
         try {
             Statement stmt = this.getConexao().createStatement();
@@ -137,8 +137,8 @@ public class AlunoDAO {
         return true;
     }
 
-    // Edita um aluno específico pelo seu campo ID
-    public boolean UpdateAlunoBD(Aluno objeto) {
+    // Edita um aluno especï¿½fico pelo seu campo ID
+    public boolean UpdateAlunoBD(Produto objeto) {
 
         String sql = "UPDATE tb_alunos set nome = ? ,idade = ? ,curso = ? ,fase = ? WHERE id = ?";
 
@@ -162,9 +162,9 @@ public class AlunoDAO {
 
     }
 
-    public Aluno carregaAluno(int id) {
+    public Produto carregaAluno(int id) {
         
-        Aluno objeto = new Aluno();
+        Produto objeto = new Produto();
         objeto.setId(id);
         
         try {
