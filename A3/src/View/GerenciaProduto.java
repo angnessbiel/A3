@@ -279,7 +279,7 @@ public final class GerenciaProduto extends javax.swing.JFrame {
                 id = Integer.parseInt(this.jTableProduto.getValueAt(this.jTableProduto.getSelectedRow(), 0).toString());
             }
 
-            // envia os dados para o Aluno processar
+            // envia os dados para o produto processar
             if (this.objProduto.UpdateProdutoBD(id, desc, nome, quantEstq, preco, data_cad)) {
 
                 // limpa os campos

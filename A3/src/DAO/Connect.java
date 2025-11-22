@@ -12,7 +12,7 @@ public class Connect {
     public static Connection getConnection() {
         try {
             // Carregar driver
-            Class.forName("com.mysql.cj.jdbc.Driver");
+            Class.forName("org.postgresql.Driver");
 
             // Carregar configurações externas
             Properties props = new Properties();

@@ -121,7 +121,6 @@ public class Produto {
     private boolean InsertProdutoBD(String nome, String desc, int quantEstq, double preco, Date data) {
     try {
         Produto p = new Produto();
-        p.setId(0); // ou gere ID automático se necessário
         p.setNome(nome);
         p.setDesc(desc);
         p.setQuantEstq(quantEstq);
