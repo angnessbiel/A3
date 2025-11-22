@@ -5,13 +5,21 @@ import java.util.*;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
-public class GerenciaProduto extends javax.swing.JFrame {
+public final class GerenciaProduto extends javax.swing.JFrame {
 
-    private Produto objaluno; // cria o v�nculo com o objaluno
+    private final Produto objProduto; // cria o v�nculo com o objproduto
+    private String nome;
+    private String desc;
+    private String quant;
+    private String preco;
+    private String data;
+    private String data_cad;
+    private String quantEstq;
+    private String id;
 
     public GerenciaProduto() {
         initComponents();
-        this.objaluno = new Produto(); // carrega objaluno de aluno
+        this.objProduto = new Produto(); // carrega objproduto
         this.carregaTabela();
     }
 
@@ -25,27 +33,27 @@ public class GerenciaProduto extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTableAlunos = new javax.swing.JTable();
+        jTableProduto = new javax.swing.JTable();
         b_cancelar = new javax.swing.JButton();
         b_alterar = new javax.swing.JButton();
         b_apagar = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        c_fase1 = new javax.swing.JTextField();
+        c_preco = new javax.swing.JTextField();
         c_nome = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        c_fase2 = new javax.swing.JTextField();
-        c_idade = new javax.swing.JTextField();
+        c_data_cad = new javax.swing.JTextField();
+        c_id = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        c_curso = new javax.swing.JTextField();
+        c_desc = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        c_fase = new javax.swing.JTextField();
+        c_quantEstq = new javax.swing.JTextField();
 
-        setTitle("Gerenciamento de Alunos");
+        setTitle("Gerenciamento de Produto");
         setResizable(false);
 
-        jTableAlunos.setModel(new javax.swing.table.DefaultTableModel(
+        jTableProduto.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
@@ -60,15 +68,15 @@ public class GerenciaProduto extends javax.swing.JFrame {
                 "ID", "Nome", "Descrição", "Quantidade", "Preço", "Data do Cadastro"
             }
         ));
-        jTableAlunos.addMouseListener(new java.awt.event.MouseAdapter() {
+        jTableProduto.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTableAlunosMouseClicked(evt);
+                jTableProdutoMouseClicked(evt);
             }
         });
-        jScrollPane1.setViewportView(jTableAlunos);
-        if (jTableAlunos.getColumnModel().getColumnCount() > 0) {
-            jTableAlunos.getColumnModel().getColumn(0).setMinWidth(30);
-            jTableAlunos.getColumnModel().getColumn(1).setMinWidth(30);
+        jScrollPane1.setViewportView(jTableProduto);
+        if (jTableProduto.getColumnModel().getColumnCount() > 0) {
+            jTableProduto.getColumnModel().getColumn(0).setMinWidth(30);
+            jTableProduto.getColumnModel().getColumn(1).setMinWidth(30);
         }
 
         b_cancelar.setText("Cancelar");
@@ -96,9 +104,9 @@ public class GerenciaProduto extends javax.swing.JFrame {
 
         jLabel1.setText("Nome:");
 
-        c_fase1.addActionListener(new java.awt.event.ActionListener() {
+        c_preco.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                c_fase1ActionPerformed(evt);
+                c_precoActionPerformed(evt);
             }
         });
 
@@ -112,25 +120,26 @@ public class GerenciaProduto extends javax.swing.JFrame {
 
         jLabel2.setText("ID");
 
-        c_fase2.addActionListener(new java.awt.event.ActionListener() {
+        c_data_cad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                c_fase2ActionPerformed(evt);
+                c_data_cadActionPerformed(evt);
             }
         });
 
         jLabel3.setText("Descrição: ");
 
-        c_curso.addActionListener(new java.awt.event.ActionListener() {
+        c_desc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                c_cursoActionPerformed(evt);
+                c_descActionPerformed(evt);
             }
         });
 
         jLabel4.setText("Quantidade:");
 
-        c_fase.addActionListener(new java.awt.event.ActionListener() {
+        c_quantEstq.setName(""); // NOI18N
+        c_quantEstq.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                c_faseActionPerformed(evt);
+                c_quantEstqActionPerformed(evt);
             }
         });
 
@@ -148,20 +157,20 @@ public class GerenciaProduto extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(c_fase2)
+                        .addComponent(c_data_cad)
                         .addGap(55, 55, 55))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(c_fase1, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(c_preco, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(c_curso, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(c_fase, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(c_desc, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(c_quantEstq, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(c_nome, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -173,7 +182,7 @@ public class GerenciaProduto extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(c_idade, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(c_id, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(160, 160, 160))
         );
         layout.setVerticalGroup(
@@ -184,7 +193,7 @@ public class GerenciaProduto extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(c_idade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(c_id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -192,19 +201,19 @@ public class GerenciaProduto extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(c_curso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(c_desc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(c_fase, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(c_quantEstq, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(c_fase1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(c_preco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(c_fase2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(c_data_cad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(b_cancelar)
@@ -227,9 +236,10 @@ public class GerenciaProduto extends javax.swing.JFrame {
             // recebendo e validando dados da interface gr�fica.
             int id = 0;
             String nome = "";
-            int idade = 0;
-            String curso = "";
-            int fase = 0;
+            String desc = "";
+            int quantEstq = 0;
+            double preco = 0.0;
+            String data_cad = "";
 
             if (this.c_nome.getText().length() < 2) {
                 throw new Mensagens("Nome deve conter ao menos 2 caracteres.");
@@ -237,42 +247,44 @@ public class GerenciaProduto extends javax.swing.JFrame {
                 nome = this.c_nome.getText();
             }
 
-            if (this.c_idade.getText().length() <= 0) {
+            if (this.c_desc.getText().length() <= 0) {
                 throw new Mensagens("Idade deve ser n�mero e maior que zero.");
             } else {
-                idade = Integer.parseInt(this.c_idade.getText());
+                desc = (this.c_desc.getText());
             }
 
-            if (this.c_curso.getText().length() < 2) {
+            if (this.c_quantEstq.getText().length() < 2) {
                 throw new Mensagens("Curso deve conter ao menos 2 caracteres.");
             } else {
-                curso = this.c_curso.getText();
+                quantEstq = Integer.parseInt (this.c_desc.getText());
             }
 
-            if (this.c_fase.getText().length() <= 0) {
+            if (this.c_preco.getText().length() <= 0) {
                 throw new Mensagens("Fase deve ser n�mero e maior que zero.");
             } else {
-                fase = Integer.parseInt(this.c_fase.getText());
+                preco = Integer.parseInt(this.c_quantEstq.getText());
             }
 
-            if (this.jTableAlunos.getSelectedRow() == -1) {
+            if (this.jTableProduto.getSelectedRow() == -1) {
                 throw new Mensagens("Primeiro Selecione um Aluno para Alterar");
             } else {
-                id = Integer.parseInt(this.jTableAlunos.getValueAt(this.jTableAlunos.getSelectedRow(), 0).toString());
+                id = Integer.parseInt(this.jTableProduto.getValueAt(this.jTableProduto.getSelectedRow(), 0).toString());
             }
 
             // envia os dados para o Aluno processar
-            if (this.objaluno.UpdateAlunoBD(curso, fase, id, nome, idade)) {
+            if (this.objProduto.UpdateProdutoBD(id, desc, id, nome, quantEstq, preco, data_cad)) {
 
                 // limpa os campos
                 this.c_nome.setText("");
-                this.c_idade.setText("");
-                this.c_curso.setText("");
-                this.c_fase.setText("");
-                JOptionPane.showMessageDialog(rootPane, "Aluno Alterado com Sucesso!");
+                this.c_id.setText("");
+                this.c_desc.setText("");
+                this.c_quantEstq.setText("");
+                this.c_preco.setText("");
+                this.c_data_cad.setText("");
+                JOptionPane.showMessageDialog(rootPane, "Produto Alterado com Sucesso!");
 
             }
-            System.out.println(this.objaluno.getMinhaLista().toString());
+            System.out.println(this.objProduto.getMinhaLista().toString());
         } catch (Mensagens erro) {
             JOptionPane.showMessageDialog(null, erro.getMessage());
         } catch (NumberFormatException erro2) {
@@ -282,31 +294,35 @@ public class GerenciaProduto extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_b_alterarActionPerformed
 
-    private void jTableAlunosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableAlunosMouseClicked
+    private void jTableProdutoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableProdutoMouseClicked
 
-        if (this.jTableAlunos.getSelectedRow() != -1) {
+        if (this.jTableProduto.getSelectedRow() != -1) {
 
-            String nome = this.jTableAlunos.getValueAt(this.jTableAlunos.getSelectedRow(), 1).toString();
-            String idade = this.jTableAlunos.getValueAt(this.jTableAlunos.getSelectedRow(), 2).toString();
-            String curso = this.jTableAlunos.getValueAt(this.jTableAlunos.getSelectedRow(), 3).toString();
-            String fase = this.jTableAlunos.getValueAt(this.jTableAlunos.getSelectedRow(), 4).toString();
+            String nome;
+            nome = this.jTableProduto.getValueAt(this.jTableProduto.getSelectedRow(), 1).toString();
+            String idade = this.jTableProduto.getValueAt(this.jTableProduto.getSelectedRow(), 2).toString();
+            String curso = this.jTableProduto.getValueAt(this.jTableProduto.getSelectedRow(), 3).toString();
+            String fase = this.jTableProduto.getValueAt(this.jTableProduto.getSelectedRow(), 4).toString();
 
+            this.c_id.setText(id);
             this.c_nome.setText(nome);
-            this.c_idade.setText(idade);
-            this.c_curso.setText(curso);
-            this.c_fase.setText(fase);
+            this.c_desc.setText(desc);
+            this.c_quantEstq.setText(quantEstq);
+            this.c_preco.setText(preco);
+            this.c_data_cad.setText(data_cad);
+
 
         }
-    }//GEN-LAST:event_jTableAlunosMouseClicked
+    }//GEN-LAST:event_jTableProdutoMouseClicked
 
     private void b_apagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_apagarActionPerformed
         try {
             // validando dados da interface gr�fica.
             int id = 0;
-            if (this.jTableAlunos.getSelectedRow() == -1) {
-                throw new Mensagens("Primeiro Selecione um Aluno para APAGAR");
+            if (this.jTableProduto.getSelectedRow() == -1) {
+                throw new Mensagens("Primeiro Selecione um Produto para APAGAR");
             } else {
-                id = Integer.parseInt(this.jTableAlunos.getValueAt(this.jTableAlunos.getSelectedRow(), 0).toString());
+                id = Integer.parseInt(this.jTableProduto.getValueAt(this.jTableProduto.getSelectedRow(), 0).toString());
             }
 
             // retorna 0 -> primeiro bot�o | 1 -> segundo bot�o | 2 -> terceiro bot�o
@@ -315,20 +331,23 @@ public class GerenciaProduto extends javax.swing.JFrame {
             if (resposta_usuario == 0) {// clicou em SIM
 
                 // envia os dados para o Aluno processar
-                if (this.objaluno.DeleteAlunoBD(id)) {
+                if (this.objProduto.DeleteProdutoBD(id))  {
 
                     // limpa os campos
-                    this.c_nome.setText("");
-                    this.c_idade.setText("");
-                    this.c_curso.setText("");
-                    this.c_fase.setText("");
-                    JOptionPane.showMessageDialog(rootPane, "Aluno Apagado com Sucesso!");
+                    this.c_id.setText(String.valueOf(id));
+                    this.c_nome.setText(nome);
+                    this.c_desc.setText(desc);
+                    this.c_quantEstq.setText(quant);
+                    this.c_preco.setText(preco);
+                    this.c_data_cad.setText(data);
+
+                    JOptionPane.showMessageDialog(rootPane, "Produto apagado com sucesso!");
 
                 }
 
             }
 
-            System.out.println(this.objaluno.getMinhaLista().toString());
+            System.out.println(this.objProduto.getMinhaLista());
 
         } catch (Mensagens erro) {
             JOptionPane.showMessageDialog(null, erro.getMessage());
@@ -338,45 +357,47 @@ public class GerenciaProduto extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_b_apagarActionPerformed
 
-    private void c_fase1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c_fase1ActionPerformed
+    private void c_precoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c_precoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_c_fase1ActionPerformed
+    }//GEN-LAST:event_c_precoActionPerformed
 
     private void c_nomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c_nomeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_c_nomeActionPerformed
 
-    private void c_fase2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c_fase2ActionPerformed
+    private void c_data_cadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c_data_cadActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_c_fase2ActionPerformed
+    }//GEN-LAST:event_c_data_cadActionPerformed
 
-    private void c_cursoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c_cursoActionPerformed
+    private void c_descActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c_descActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_c_cursoActionPerformed
+    }//GEN-LAST:event_c_descActionPerformed
 
-    private void c_faseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c_faseActionPerformed
+    private void c_quantEstqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c_quantEstqActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_c_faseActionPerformed
+    }//GEN-LAST:event_c_quantEstqActionPerformed
 
     /**
-     * @param args the command line arguments
      */
     @SuppressWarnings("unchecked")
     public void carregaTabela() {
 
-        DefaultTableModel modelo = (DefaultTableModel) this.jTableAlunos.getModel();
+        DefaultTableModel modelo = (DefaultTableModel) this.jTableProduto.getModel();
         modelo.setNumRows(0);
 
+        @SuppressWarnings("UnusedAssignment")
         ArrayList<Produto> minhalista = new ArrayList<>();
-        minhalista = objaluno.getMinhaLista();
+        minhalista = (ArrayList<Produto>) objProduto.getMinhaLista();
 
         for (Produto a : minhalista) {
             modelo.addRow(new Object[]{
                 a.getId(),
                 a.getNome(),
-                a.getIdade(),
-                a.getCurso(),
-                a.getFase()
+                a.getDesc(),
+                a.getQuantEstq(),
+                a.getPreco(),
+                a.getData_cad()
+
             });
         }
     }
@@ -407,10 +428,8 @@ public class GerenciaProduto extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new GerenciaProduto().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new GerenciaProduto().setVisible(true);
         });
         
     }
@@ -419,12 +438,12 @@ public class GerenciaProduto extends javax.swing.JFrame {
     private javax.swing.JButton b_alterar;
     private javax.swing.JButton b_apagar;
     private javax.swing.JButton b_cancelar;
-    private javax.swing.JTextField c_curso;
-    private javax.swing.JTextField c_fase;
-    private javax.swing.JTextField c_fase1;
-    private javax.swing.JTextField c_fase2;
-    private javax.swing.JTextField c_idade;
+    private javax.swing.JTextField c_data_cad;
+    private javax.swing.JTextField c_desc;
+    private javax.swing.JTextField c_id;
     private javax.swing.JTextField c_nome;
+    private javax.swing.JTextField c_preco;
+    private javax.swing.JTextField c_quantEstq;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -432,6 +451,16 @@ public class GerenciaProduto extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTableAlunos;
+    private javax.swing.JTable jTableProduto;
     // End of variables declaration//GEN-END:variables
+
+    private static class objProduto {
+
+        private static ArrayList<Produto> getMinhaLista() {
+            throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        }
+
+        public objProduto() {
+        }
+    }
 }

@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.util.Properties;
 import java.io.FileInputStream;
+import java.io.IOException;
+import java.sql.SQLException;
 
 public class Connect {
 
@@ -14,7 +16,7 @@ public class Connect {
 
             // Carregar configurações externas
             Properties props = new Properties();
-            FileInputStream file = new FileInputStream("config.properties");
+            FileInputStream file = new FileInputStream(System.getProperty("user.dir") + "/config.properties");
             props.load(file);
 
             String url = props.getProperty("db.url");
@@ -25,7 +27,7 @@ public class Connect {
             Connection conn = DriverManager.getConnection(url, user, password);
             return conn;
 
-        } catch (Exception e) {
+        } catch (IOException | ClassNotFoundException | SQLException e) {
             System.out.println("Erro ao conectar: " + e.getMessage());
             return null;
         }

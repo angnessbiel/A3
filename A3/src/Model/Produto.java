@@ -3,18 +3,23 @@ package Model;
 import java.util.*;
 import DAO.ProdutoDAO;
 import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 public class Produto {
 
-private int id;
-private String nome;
-private String desc;
-private int quantEstq;
-private double preco;
-private Date data_cad;
+    private int id;
+    private String nome;
+    private String desc;
+    private int quantEstq;
+    private double preco;
+    private Date data_cad;
 
-    public Produto() {
-    }
+    // INSTÂNCIA DO DAO (correção)
+    @SuppressWarnings("FieldMayBeFinal")
+    private ProdutoDAO dao = new ProdutoDAO();
+
+    public Produto() {}
 
     public Produto(int id, String nome, String desc, int quantEstq, double preco, Date data_cad) {
         this.id = id;
@@ -25,118 +30,75 @@ private Date data_cad;
         this.data_cad = data_cad;
     }
 
-    public int getId() {
-        return id;
+    // GETTERS E SETTERS
+    public int getId() { return id; }
+    public void setId(int id) { this.id = id; }
+
+    public String getNome() { return nome; }
+    public void setNome(String nome) { this.nome = nome; }
+
+    public String getDesc() { return desc; }
+    public void setDesc(String descricao) { this.desc = descricao; }
+
+    public int getQuantEstq() { return quantEstq; }
+    public void setQuantEstq(int quantEstq) { this.quantEstq = quantEstq; }
+
+    public double getPreco() { return preco; }
+    public void setPreco(double preco) { this.preco = preco; }
+
+    public Date getData_cad() { return data_cad; }
+    public void setData_cad(Date data_cad) { this.data_cad = data_cad; }
+
+    // MÉTODOS DE BANCO DE DADOS
+
+    @SuppressWarnings("FieldMayBeFinal")
+    private List<Produto> minhaLista = new ArrayList<>();
+
+    public List<Produto> getMinhaLista() {
+    return minhaLista;
     }
 
-    public void setId(int id) {
-        this.id = id;
+   
+
+    public boolean InsertProduto(String nome, String desc, int quantEstq, double preco, String data_cad) {
+        try {
+        // Converte a data (String) para Date
+        SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
+        Date data = formato.parse(data_cad);
+
+        // Chama o método existente que envia para o DAO
+        return InsertProdutoBD(nome, desc, quantEstq, preco, data);
+
+    } catch (ParseException e) {
+        System.out.println("Erro ao inserir produto: " + e.getMessage());
+        return false;
+    }
+}
+
+    public boolean UpdateProdutoBD(int id, String desc, int id0, String nome, int quantEstq, double preco, String data_cad) {
+        try {
+        // Converte a data (String) para Date
+        SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
+        Date data = formato.parse(data_cad);
+
+        // Chama o método existente que envia para o DAO
+        return UpdateProdutoBD(id, nome, desc, quantEstq, preco, data);
+
+    } catch (ParseException e) {
+        System.out.println("Erro ao atualizar produto: " + e.getMessage());
+        return false;
+    }
+}
+
+    private boolean InsertProdutoBD(String nome, String desc, int quantEstq, double preco, Date data) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
-    public String getNome() {
-        return nome;
+    private boolean UpdateProdutoBD(int id, String nome, String desc, int quantEstq, double preco, Date data) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getDesc() {
-        return desc;
-    }
-
-    public void setDesc(String descricao) {
-        this.desc = descricao;
-    }
-
-    public int getQuantEstq() {
-        return quantEstq;
-    }
-
-    public void setQuantEstq(int quantEstq) {
-        this.quantEstq = quantEstq;
-    }
-
-    public double getPreco() {
-        return preco;
-    }
-
-    public void setPreco(double preco) {
-        this.preco = preco;
-    }
-
-    public Date getData_cad() {
-        return data_cad;
-    }
-
-    public void setData_cad(Date data_cad) {
-        this.data_cad = data_cad;
-    }
-
-
-    /*
-    
-        ABAIXO OS M�TODOS PARA USO JUNTO COM O DAO
-        SIMULANDO A ESTRUTURA EM CAMADAS PARA USAR COM BANCOS DE DADOS.
-    
-     */
-    // Retorna a Lista de Alunos(objetos)
-    public ArrayList getMinhaLista() {
-        //return AlunoDAO.MinhaLista;
-        return dao.getMinhaLista();
-    }
-
-    // Cadastra novo aluno
-//    public boolean InsertAlunoBD(String curso, int fase, String nome, int idade) {
-    public boolean InsertProdutoBD(String nome, String desc, int quantEstq, double preco, Date data_cad) throws SQLException {
-        int id = this.maiorID() + 1;
-        Produto objeto = new Produto(int id, String nome, String desc, int quantEstq, double preco, Date data_cad);
-//        AlunoDAO.MinhaLista.add(objeto);
-        dao.InsertProdutoBD(objeto);
-        return true;
-
-    }
-
-    // Deleta um aluno espec�fico pelo seu campo ID
     public boolean DeleteProdutoBD(int id) {
-//        int indice = this.procuraIndice(id);
-//        AlunoDAO.MinhaLista.remove(indice);
-        dao.DeleteAlunoBD(id);
-        return true;
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
-
-    // Edita um aluno espec�fico pelo seu campo ID
-    public boolean UpdateProdutoBD(int id, String nome, String desc, int quantEstq, double preco, Date data_cad) {
-        Produto objeto = new Produto(id, nome, desc, quantEstq, preco, data_cad);
-//        int indice = this.procuraIndice(id);
-//        AlunoDAO.MinhaLista.set(indice, objeto);
-        dao.UpdateProdutoBD(objeto);
-        return true;
-    }
-
-    // procura o INDICE de objeto da MinhaLista que contem o ID enviado.
-//    private int procuraIndice(int id) {
-//        int indice = -1;
-//        for (int i = 0; i < AlunoDAO.MinhaLista.size(); i++) {
-//            if (AlunoDAO.MinhaLista.get(i).getId() == id) {
-//                indice = i;
-//            }
-//        }
-//        return indice;
-//    }
-
-    // carrega dados de um aluno espec�fico pelo seu ID
-    public Produto carregaProduto(int id) {
-//        int indice = this.procuraIndice(id);
-//        return AlunoDAO.MinhaLista.get(indice);
-        dao.carregaProduto(id);
-        return null;
-    }
-    
-    // retorna o maior ID da nossa base de dados
-        public int maiorID() throws SQLException{
-//    public int maiorID(){
-//        return AlunoDAO.maiorID();
-        return dao.maiorID();
-    }   
 }

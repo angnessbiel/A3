@@ -8,7 +8,7 @@ import javax.swing.JOptionPane;
 
 public class CadastroProduto extends javax.swing.JFrame {
 
-    private Produto objproduto; // cria o v�nculo com o Aluno.java
+    private final Produto objproduto; // cria o v�nculo com o Aluno.java
 
     public CadastroProduto() {
         initComponents();
@@ -121,7 +121,7 @@ public class CadastroProduto extends javax.swing.JFrame {
                                 .addGroup(layout.createSequentialGroup()
                                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGap(18, 18, 18)
-                                    .addComponent(c_preco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(c_preco, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(layout.createSequentialGroup()
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                         .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -133,7 +133,7 @@ public class CadastroProduto extends javax.swing.JFrame {
                                         .addGroup(layout.createSequentialGroup()
                                             .addComponent(c_quantEstq, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
                                             .addGap(180, 180, 180))
-                                        .addComponent(c_id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(c_id, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(c_nome, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGap(47, 47, 47)))))
@@ -191,8 +191,7 @@ public class CadastroProduto extends javax.swing.JFrame {
     private void b_cadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_cadastrarActionPerformed
 
         try {
-            // recebendo e validando dados da interface gr�fica.
-            int id = 0;
+// recebendo e validando dados da interface gr�fica.
             String nome = "";
             String desc = "";
             int quantEstq = 0;
@@ -203,7 +202,7 @@ public class CadastroProduto extends javax.swing.JFrame {
             if (this.c_id.getText().trim().length() <= 0) {
                 throw new Mensagens("ID deve ser um número e maior que zero.");
             } else {
-                id = Integer.parseInt(this.c_id.getText().trim());
+                Integer.valueOf(this.c_id.getText().trim());
             }
 
             // Nome
@@ -242,7 +241,7 @@ public class CadastroProduto extends javax.swing.JFrame {
             }
 
             // envia os dados para o Controlador cadastrar
-            if (this.objproduto.InsertprodutoBD(nome, desc, quantEstq, preco, data_cad)) {
+            if (this.objproduto.InsertProduto(nome, desc, quantEstq, preco, data_cad)) {
                 JOptionPane.showMessageDialog(rootPane, "Produto Cadastrado com Sucesso!");
 
                 // limpa campos da interface
@@ -261,8 +260,6 @@ public class CadastroProduto extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null, erro.getMessage());
     } catch (NumberFormatException erro2) {
         JOptionPane.showMessageDialog(null, "Informe um número válido.");
-    } catch (SQLException ex) {
-        Logger.getLogger(CadastroProduto.class.getName()).log(Level.SEVERE, null, ex);
     }
 
 
@@ -311,10 +308,8 @@ public class CadastroProduto extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new CadastroProduto().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new CadastroProduto().setVisible(true);
         });
     }
 
