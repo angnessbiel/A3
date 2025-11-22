@@ -37,7 +37,7 @@
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="jLabel6" min="-2" pref="99" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="c_fase2" max="32767" attributes="0"/>
+                          <Component id="c_data_cad" max="32767" attributes="0"/>
                           <EmptySpace min="-2" pref="102" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
@@ -45,7 +45,7 @@
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="jLabel5" min="-2" pref="51" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="c_fase1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="c_preco" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="1" max="-2" attributes="0">
@@ -55,12 +55,12 @@
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="c_curso" min="-2" pref="246" max="-2" attributes="0"/>
+                                      <Component id="c_desc" min="-2" pref="246" max="-2" attributes="0"/>
                                       <Group type="102" alignment="0" attributes="0">
-                                          <Component id="c_fase" pref="0" max="32767" attributes="0"/>
+                                          <Component id="c_quantEstq" pref="0" max="32767" attributes="0"/>
                                           <EmptySpace min="-2" pref="180" max="-2" attributes="0"/>
                                       </Group>
-                                      <Component id="c_idade" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="c_id" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <Component id="jLabel1" alignment="0" min="-2" pref="47" max="-2" attributes="0"/>
@@ -83,27 +83,27 @@
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="c_idade" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="c_id" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="c_curso" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="c_desc" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="c_fase" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="c_quantEstq" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="c_fase1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="c_preco" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="c_fase2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="c_data_cad" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="25" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -131,16 +131,16 @@
         <Property name="text" type="java.lang.String" value="ID"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="c_idade">
+    <Component class="javax.swing.JTextField" name="c_id">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">
       <Properties>
         <Property name="text" type="java.lang.String" value="Descri&#xe7;&#xe3;o: "/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="c_curso">
+    <Component class="javax.swing.JTextField" name="c_desc">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="c_cursoActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="c_descActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel4">
@@ -148,9 +148,9 @@
         <Property name="text" type="java.lang.String" value="Quantidade:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="c_fase">
+    <Component class="javax.swing.JTextField" name="c_quantEstq">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="c_faseActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="c_quantEstqActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="b_cadastrar">
@@ -174,9 +174,9 @@
         <Property name="text" type="java.lang.String" value="Pre&#xe7;o:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="c_fase1">
+    <Component class="javax.swing.JTextField" name="c_preco">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="c_fase1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="c_precoActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel6">
@@ -184,9 +184,9 @@
         <Property name="text" type="java.lang.String" value="Data do Cadastro:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="c_fase2">
+    <Component class="javax.swing.JTextField" name="c_data_cad">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="c_fase2ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="c_data_cadActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

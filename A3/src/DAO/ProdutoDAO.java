@@ -104,7 +104,7 @@ public class ProdutoDAO {
     
     // Cadastra novo aluno
     public boolean InsertProdutoBD(Produto objeto) {
-        String sql = "INSERT INTO tb_alunos(id,nome,idade,curso,fase) VALUES(?,?,?,?,?)";
+        String sql = "INSERT INTO tb_alunos(id,nome,descrição, quantidade, preço, data cadastro) VALUES(?,?,?,?,?)";
 
         try {
             PreparedStatement stmt = this.getConexao().prepareStatement(sql);

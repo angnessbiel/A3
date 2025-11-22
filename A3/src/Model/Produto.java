@@ -88,11 +88,11 @@ private Date data_cad;
 
     // Cadastra novo aluno
 //    public boolean InsertAlunoBD(String curso, int fase, String nome, int idade) {
-    public boolean InsertProdutoBD(String curso, int fase, String nome, int idade) throws SQLException {
+    public boolean InsertProdutoBD(String nome, String desc, int quantEstq, double preco, Date data_cad) throws SQLException {
         int id = this.maiorID() + 1;
-        Produto objeto = new Produto(curso, fase, id, nome, idade);
+        Produto objeto = new Produto(int id, String nome, String desc, int quantEstq, double preco, Date data_cad);
 //        AlunoDAO.MinhaLista.add(objeto);
-        dao.InsertAlunoBD(objeto);
+        dao.InsertProdutoBD(objeto);
         return true;
 
     }
@@ -106,8 +106,8 @@ private Date data_cad;
     }
 
     // Edita um aluno espec�fico pelo seu campo ID
-    public boolean UpdateProdutoBD(String curso, int fase, int id, String nome, int idade) {
-        Produto objeto = new Produto(curso, fase, id, nome, idade);
+    public boolean UpdateProdutoBD(int id, String nome, String desc, int quantEstq, double preco, Date data_cad) {
+        Produto objeto = new Produto(id, nome, desc, quantEstq, preco, data_cad);
 //        int indice = this.procuraIndice(id);
 //        AlunoDAO.MinhaLista.set(indice, objeto);
         dao.UpdateProdutoBD(objeto);

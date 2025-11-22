@@ -27,17 +27,17 @@ public class CadastroProduto extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         c_nome = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        c_idade = new javax.swing.JTextField();
+        c_id = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        c_curso = new javax.swing.JTextField();
+        c_desc = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        c_fase = new javax.swing.JTextField();
+        c_quantEstq = new javax.swing.JTextField();
         b_cadastrar = new javax.swing.JButton();
         b_cancelar = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
-        c_fase1 = new javax.swing.JTextField();
+        c_preco = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        c_fase2 = new javax.swing.JTextField();
+        c_data_cad = new javax.swing.JTextField();
 
         setTitle("Cadastro de Aluno");
         setResizable(false);
@@ -54,17 +54,17 @@ public class CadastroProduto extends javax.swing.JFrame {
 
         jLabel3.setText("Descrição: ");
 
-        c_curso.addActionListener(new java.awt.event.ActionListener() {
+        c_desc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                c_cursoActionPerformed(evt);
+                c_descActionPerformed(evt);
             }
         });
 
         jLabel4.setText("Quantidade:");
 
-        c_fase.addActionListener(new java.awt.event.ActionListener() {
+        c_quantEstq.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                c_faseActionPerformed(evt);
+                c_quantEstqActionPerformed(evt);
             }
         });
 
@@ -84,17 +84,17 @@ public class CadastroProduto extends javax.swing.JFrame {
 
         jLabel5.setText("Preço:");
 
-        c_fase1.addActionListener(new java.awt.event.ActionListener() {
+        c_preco.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                c_fase1ActionPerformed(evt);
+                c_precoActionPerformed(evt);
             }
         });
 
         jLabel6.setText("Data do Cadastro:");
 
-        c_fase2.addActionListener(new java.awt.event.ActionListener() {
+        c_data_cad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                c_fase2ActionPerformed(evt);
+                c_data_cadActionPerformed(evt);
             }
         });
 
@@ -114,14 +114,14 @@ public class CadastroProduto extends javax.swing.JFrame {
                         .addGroup(layout.createSequentialGroup()
                             .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(18, 18, 18)
-                            .addComponent(c_fase2)
+                            .addComponent(c_data_cad)
                             .addGap(102, 102, 102))
                         .addGroup(layout.createSequentialGroup()
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addGroup(layout.createSequentialGroup()
                                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGap(18, 18, 18)
-                                    .addComponent(c_fase1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(c_preco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(layout.createSequentialGroup()
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                         .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -129,11 +129,11 @@ public class CadastroProduto extends javax.swing.JFrame {
                                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(c_curso, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(c_desc, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGroup(layout.createSequentialGroup()
-                                            .addComponent(c_fase, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
+                                            .addComponent(c_quantEstq, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
                                             .addGap(180, 180, 180))
-                                        .addComponent(c_idade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(c_id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(c_nome, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGap(47, 47, 47)))))
@@ -148,23 +148,23 @@ public class CadastroProduto extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(c_idade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(c_id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(c_curso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(c_desc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(c_fase, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(c_quantEstq, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(c_fase1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(c_preco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(c_fase2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(c_data_cad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(b_cadastrar)
@@ -180,68 +180,90 @@ public class CadastroProduto extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_c_nomeActionPerformed
 
-    private void c_cursoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c_cursoActionPerformed
+    private void c_descActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c_descActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_c_cursoActionPerformed
+    }//GEN-LAST:event_c_descActionPerformed
 
-    private void c_faseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c_faseActionPerformed
+    private void c_quantEstqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c_quantEstqActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_c_faseActionPerformed
+    }//GEN-LAST:event_c_quantEstqActionPerformed
 
     private void b_cadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_cadastrarActionPerformed
 
         try {
             // recebendo e validando dados da interface gr�fica.
+            int id = 0;
             String nome = "";
-            int idade = 0;
-            String curso = "";
-            int fase = 0;
+            String desc = "";
+            int quantEstq = 0;
+            double preco = 0.0;
+            String data_cad = "";
 
-            if (this.c_nome.getText().length() < 2) {
+            // ID
+            if (this.c_id.getText().trim().length() <= 0) {
+                throw new Mensagens("ID deve ser um número e maior que zero.");
+            } else {
+                id = Integer.parseInt(this.c_id.getText().trim());
+            }
+
+            // Nome
+            if (this.c_nome.getText().trim().length() < 2) {
                 throw new Mensagens("Nome deve conter ao menos 2 caracteres.");
             } else {
-                nome = this.c_nome.getText();
+                nome = this.c_nome.getText().trim();
             }
 
-            if (this.c_idade.getText().length() <= 0) {
-                throw new Mensagens("Idade deve ser n�mero e maior que zero.");
+            // Descrição
+            if (this.c_desc.getText().trim().length() < 2) {
+                throw new Mensagens("Descrição deve conter ao menos 2 caracteres.");
             } else {
-                idade = Integer.parseInt(this.c_idade.getText());
-            }
-            
-            if (this.c_curso.getText().length() < 2) {
-                throw new Mensagens("Curso deve conter ao menos 2 caracteres.");
-            } else {
-                curso = this.c_curso.getText();
+                desc = this.c_desc.getText().trim();
             }
 
-            if (this.c_fase.getText().length() <= 0) {
-                throw new Mensagens("Fase deve ser n�mero e maior que zero.");
+            // Quantidade em estoque
+            if (this.c_quantEstq.getText().trim().length() <= 0) {
+                throw new Mensagens("Quantidade deve ser um número e maior que zero.");
             } else {
-                fase = Integer.parseInt(this.c_fase.getText());
+                quantEstq = Integer.parseInt(this.c_quantEstq.getText().trim());
+            }
+
+            // Preço
+            if (this.c_preco.getText().trim().length() <= 0) {
+                throw new Mensagens("Preço deve ser um valor numérico.");
+            } else {
+                preco = Double.parseDouble(this.c_preco.getText().trim());
+            }
+
+            // Data do cadastro
+            if (this.c_data_cad.getText().trim().length() < 8) {
+                throw new Mensagens("Data do cadastro deve ser informada (ex: 10/11/2024).");
+            } else {
+                data_cad = this.c_data_cad.getText().trim();
             }
 
             // envia os dados para o Controlador cadastrar
-            if (this.objproduto.InsertprodutoBD(nome, desc, quantEstq, preco, data_cad )) {
-                JOptionPane.showMessageDialog(rootPane, "Aluno Cadastrado com Sucesso!");
+            if (this.objproduto.InsertprodutoBD(nome, desc, quantEstq, preco, data_cad)) {
+                JOptionPane.showMessageDialog(rootPane, "Produto Cadastrado com Sucesso!");
 
                 // limpa campos da interface
+                this.c_id.setText("");
                 this.c_nome.setText("");
-                this.c_idade.setText("");
-                this.c_curso.setText("");
-                this.c_fase.setText("");
+                this.c_desc.setText("");
+                this.c_quantEstq.setText("");
+                this.c_preco.setText("");
+                this.c_data_cad.setText("");
 
             }
 
-            System.out.println(this.objaluno.getMinhaLista().toString());
+            System.out.println(this.objproduto.getMinhaLista().toString());
 
-        } catch (Mensagens erro) {
-            JOptionPane.showMessageDialog(null, erro.getMessage());
-        } catch (NumberFormatException erro2) {
-            JOptionPane.showMessageDialog(null, "Informe um n�mero.");
-        } catch (SQLException ex) {
-            Logger.getLogger(CadastroProduto.class.getName()).log(Level.SEVERE, null, ex);
-        }
+    } catch (Mensagens erro) {
+        JOptionPane.showMessageDialog(null, erro.getMessage());
+    } catch (NumberFormatException erro2) {
+        JOptionPane.showMessageDialog(null, "Informe um número válido.");
+    } catch (SQLException ex) {
+        Logger.getLogger(CadastroProduto.class.getName()).log(Level.SEVERE, null, ex);
+    }
 
 
     }//GEN-LAST:event_b_cadastrarActionPerformed
@@ -252,13 +274,13 @@ public class CadastroProduto extends javax.swing.JFrame {
 
     }//GEN-LAST:event_b_cancelarActionPerformed
 
-    private void c_fase1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c_fase1ActionPerformed
+    private void c_precoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c_precoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_c_fase1ActionPerformed
+    }//GEN-LAST:event_c_precoActionPerformed
 
-    private void c_fase2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c_fase2ActionPerformed
+    private void c_data_cadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c_data_cadActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_c_fase2ActionPerformed
+    }//GEN-LAST:event_c_data_cadActionPerformed
 
     /**
      * @param args the command line arguments
@@ -299,12 +321,12 @@ public class CadastroProduto extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton b_cadastrar;
     private javax.swing.JButton b_cancelar;
-    private javax.swing.JTextField c_curso;
-    private javax.swing.JTextField c_fase;
-    private javax.swing.JTextField c_fase1;
-    private javax.swing.JTextField c_fase2;
-    private javax.swing.JTextField c_idade;
+    private javax.swing.JTextField c_data_cad;
+    private javax.swing.JTextField c_desc;
+    private javax.swing.JTextField c_id;
     private javax.swing.JTextField c_nome;
+    private javax.swing.JTextField c_preco;
+    private javax.swing.JTextField c_quantEstq;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
