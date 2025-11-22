@@ -8,7 +8,7 @@ public class Produto {
 
 private int id;
 private String nome;
-private String descricao;
+private String desc;
 private int quantEstq;
 private double preco;
 private Date data_cad;
@@ -16,10 +16,10 @@ private Date data_cad;
     public Produto() {
     }
 
-    public Produto(int id, String nome, String descricao, int quantEstq, double preco, Date data_cad) {
+    public Produto(int id, String nome, String desc, int quantEstq, double preco, Date data_cad) {
         this.id = id;
         this.nome = nome;
-        this.descricao = descricao;
+        this.desc = desc;
         this.quantEstq = quantEstq;
         this.preco = preco;
         this.data_cad = data_cad;
@@ -41,12 +41,12 @@ private Date data_cad;
         this.nome = nome;
     }
 
-    public String getDescricao() {
-        return descricao;
+    public String getDesc() {
+        return desc;
     }
 
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
+    public void setDesc(String descricao) {
+        this.desc = descricao;
     }
 
     public int getQuantEstq() {

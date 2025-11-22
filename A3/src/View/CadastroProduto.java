@@ -8,11 +8,11 @@ import javax.swing.JOptionPane;
 
 public class CadastroProduto extends javax.swing.JFrame {
 
-    private Produto objaluno; // cria o v�nculo com o Aluno.java
+    private Produto objproduto; // cria o v�nculo com o Aluno.java
 
     public CadastroProduto() {
         initComponents();
-        this.objaluno = new Produto(); // carrega objeto vazio de aluno
+        this.objproduto = new Produto(); // carrega objeto vazio de aluno
     }
 
     /**
@@ -34,6 +34,10 @@ public class CadastroProduto extends javax.swing.JFrame {
         c_fase = new javax.swing.JTextField();
         b_cadastrar = new javax.swing.JButton();
         b_cancelar = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
+        c_fase1 = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        c_fase2 = new javax.swing.JTextField();
 
         setTitle("Cadastro de Aluno");
         setResizable(false);
@@ -46,9 +50,9 @@ public class CadastroProduto extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setText("Idade: ");
+        jLabel2.setText("ID");
 
-        jLabel3.setText("Curso: ");
+        jLabel3.setText("Descrição: ");
 
         c_curso.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -56,7 +60,7 @@ public class CadastroProduto extends javax.swing.JFrame {
             }
         });
 
-        jLabel4.setText("Fase: ");
+        jLabel4.setText("Quantidade:");
 
         c_fase.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -78,36 +82,66 @@ public class CadastroProduto extends javax.swing.JFrame {
             }
         });
 
+        jLabel5.setText("Preço:");
+
+        c_fase1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                c_fase1ActionPerformed(evt);
+            }
+        });
+
+        jLabel6.setText("Data do Cadastro:");
+
+        c_fase2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                c_fase2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(58, 58, 58)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 46, Short.MAX_VALUE)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(c_curso, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(c_idade, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(c_fase, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(34, 34, 34)
+                .addContainerGap(56, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(b_cancelar)
-                        .addGap(52, 52, 52)
-                        .addComponent(b_cadastrar))
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(c_nome))
-                .addContainerGap(34, Short.MAX_VALUE))
+                        .addGap(50, 50, 50)
+                        .addComponent(b_cadastrar)
+                        .addGap(103, 103, 103))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(c_fase2)
+                            .addGap(102, 102, 102))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(c_fase1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(c_curso, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(c_fase, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
+                                            .addGap(180, 180, 180))
+                                        .addComponent(c_idade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(c_nome, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGap(47, 47, 47)))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(36, 36, 36)
+                .addContainerGap()
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(c_nome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -125,9 +159,17 @@ public class CadastroProduto extends javax.swing.JFrame {
                     .addComponent(c_fase, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(c_fase1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(c_fase2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(b_cadastrar)
                     .addComponent(b_cancelar))
-                .addContainerGap(45, Short.MAX_VALUE))
+                .addGap(27, 27, 27))
         );
 
         pack();
@@ -180,7 +222,7 @@ public class CadastroProduto extends javax.swing.JFrame {
             }
 
             // envia os dados para o Controlador cadastrar
-            if (this.objaluno.InsertAlunoBD(curso, fase, nome, idade)) {
+            if (this.objproduto.InsertprodutoBD(nome, desc, quantEstq, preco, data_cad )) {
                 JOptionPane.showMessageDialog(rootPane, "Aluno Cadastrado com Sucesso!");
 
                 // limpa campos da interface
@@ -209,6 +251,14 @@ public class CadastroProduto extends javax.swing.JFrame {
         this.setVisible(false);
 
     }//GEN-LAST:event_b_cancelarActionPerformed
+
+    private void c_fase1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c_fase1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_c_fase1ActionPerformed
+
+    private void c_fase2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c_fase2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_c_fase2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -251,11 +301,15 @@ public class CadastroProduto extends javax.swing.JFrame {
     private javax.swing.JButton b_cancelar;
     private javax.swing.JTextField c_curso;
     private javax.swing.JTextField c_fase;
+    private javax.swing.JTextField c_fase1;
+    private javax.swing.JTextField c_fase2;
     private javax.swing.JTextField c_idade;
     private javax.swing.JTextField c_nome;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     // End of variables declaration//GEN-END:variables
 }
