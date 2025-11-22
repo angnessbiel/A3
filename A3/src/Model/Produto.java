@@ -103,7 +103,7 @@ public class Produto {
         }
     }
 
-    public boolean UpdateProdutoBD(int id, String desc, int id0, String nome, int quantEstq, double preco, String data_cad) {
+    public boolean UpdateProdutoBD(int id, String desc, String nome, int quantEstq, double preco, String data_cad) {
         try {
             // Converte a data (String) para Date
             SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
