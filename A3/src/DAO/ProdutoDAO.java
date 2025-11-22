@@ -21,7 +21,7 @@ public class ProdutoDAO {
         int maiorID = 0;
         try {
             try (Statement stmt = this.getConexao().createStatement()) {
-                ResultSet res = stmt.executeQuery("SELECT MAX(id) id FROM tb_alunos");
+                ResultSet res = stmt.executeQuery("SELECT MAX(id) id FROM tb_Produtos'");
                 res.next();
                 maiorID = res.getInt("id");
             }
@@ -78,7 +78,7 @@ public class ProdutoDAO {
 
         try {
             try (Statement stmt = this.getConexao().createStatement()) {
-                ResultSet res = stmt.executeQuery("SELECT * FROM tb_alunos");
+                ResultSet res = stmt.executeQuery("SELECT * FROM tb_Produtos");
                 while (res.next()) {
                     
                     
