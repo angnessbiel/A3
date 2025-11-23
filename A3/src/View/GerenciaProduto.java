@@ -4,7 +4,7 @@ import Model.Produto;
 import java.util.*;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-
+import DAO.ProdutoDAO;
 import com.formdev.flatlaf.themes.FlatMacDarkLaf;
 import javax.swing.UIManager;
 
@@ -19,6 +19,7 @@ public final class GerenciaProduto extends javax.swing.JFrame {
     private String data_cad;
     private String quantEstq;
     private String id;
+    private ProdutoDAO dao = new ProdutoDAO();
 
     public GerenciaProduto() {
         initComponents();
@@ -262,19 +263,19 @@ public final class GerenciaProduto extends javax.swing.JFrame {
             }
 
             if (this.c_quantEstq.getText().length() < 2) {
-                throw new Mensagens("Curso deve conter ao menos 2 caracteres.");
+                throw new Mensagens("Quantidade deve conter ao menos 1 caracteres.");
             } else {
                 quantEstq = Integer.parseInt(this.c_desc.getText());
             }
 
             if (this.c_preco.getText().length() <= 0) {
-                throw new Mensagens("Fase deve ser n�mero e maior que zero.");
+                throw new Mensagens("preço deve ser n�mero e maior que zero.");
             } else {
                 preco = Integer.parseInt(this.c_quantEstq.getText());
             }
 
             if (this.jTableProduto.getSelectedRow() == -1) {
-                throw new Mensagens("Primeiro Selecione um Aluno para Alterar");
+                throw new Mensagens("Primeiro Selecione um Produto para Alterar");
             } else {
                 id = Integer.parseInt(this.jTableProduto.getValueAt(this.jTableProduto.getSelectedRow(), 0).toString());
             }
@@ -308,9 +309,9 @@ public final class GerenciaProduto extends javax.swing.JFrame {
 
             String nome;
             nome = this.jTableProduto.getValueAt(this.jTableProduto.getSelectedRow(), 1).toString();
-            String idade = this.jTableProduto.getValueAt(this.jTableProduto.getSelectedRow(), 2).toString();
-            String curso = this.jTableProduto.getValueAt(this.jTableProduto.getSelectedRow(), 3).toString();
-            String fase = this.jTableProduto.getValueAt(this.jTableProduto.getSelectedRow(), 4).toString();
+            String descricao = this.jTableProduto.getValueAt(this.jTableProduto.getSelectedRow(), 2).toString();
+            String quantiade = this.jTableProduto.getValueAt(this.jTableProduto.getSelectedRow(), 3).toString();
+            String preco = this.jTableProduto.getValueAt(this.jTableProduto.getSelectedRow(), 4).toString();
 
             this.c_id.setText(id);
             this.c_nome.setText(nome);
@@ -333,7 +334,7 @@ public final class GerenciaProduto extends javax.swing.JFrame {
             }
 
             // retorna 0 -> primeiro bot�o | 1 -> segundo bot�o | 2 -> terceiro bot�o
-            int resposta_usuario = JOptionPane.showConfirmDialog(null, "Tem certeza que deseja APAGAR este Aluno ?");
+            int resposta_usuario = JOptionPane.showConfirmDialog(null, "Tem certeza que deseja APAGAR este Produto ?");
 
             if (resposta_usuario == 0) {// clicou em SIM
 
@@ -387,27 +388,25 @@ public final class GerenciaProduto extends javax.swing.JFrame {
     /**
      */
     @SuppressWarnings("unchecked")
-    public void carregaTabela() {
+public void carregaTabela() {
 
-        DefaultTableModel modelo = (DefaultTableModel) this.jTableProduto.getModel();
-        modelo.setNumRows(0);
+    DefaultTableModel modelo = (DefaultTableModel) this.jTableProduto.getModel();
+    modelo.setNumRows(0);
 
-        @SuppressWarnings("UnusedAssignment")
-        ArrayList<Produto> minhalista = new ArrayList<>();
-        minhalista = (ArrayList<Produto>) objProduto.getMinhaLista();
+    ArrayList<Produto> lista = dao.getMinhaLista();
 
-        for (Produto a : minhalista) {
-            modelo.addRow(new Object[]{
-                a.getId(),
-                a.getNome(),
-                a.getDesc(),
-                a.getQuantEstq(),
-                a.getPreco(),
-                a.getData_cad()
-
-            });
-        }
+    for (Produto p : lista) {
+        modelo.addRow(new Object[]{
+            p.getId(),
+            p.getNome(),
+            p.getDesc(),
+            p.getQuantEstq(),
+            p.getPreco(),
+            p.getData_cad()
+        });
     }
+}
+
 
     public static void main(String args[]) {
         try {
@@ -445,13 +444,4 @@ public final class GerenciaProduto extends javax.swing.JFrame {
     private javax.swing.JTable jTableProduto;
     // End of variables declaration//GEN-END:variables
 
-    private static class objProduto {
-
-        private static ArrayList<Produto> getMinhaLista() {
-            throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-        }
-
-        public objProduto() {
-        }
-    }
 }

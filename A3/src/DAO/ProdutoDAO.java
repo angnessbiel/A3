@@ -11,7 +11,7 @@ import java.sql.Statement;
 
 public class ProdutoDAO {
 
-    public static ArrayList<Produto> MinhaLista = new ArrayList<>();
+    public static ArrayList getMinhaLista = new ArrayList<>();
 
     public ProdutoDAO() {
     }
@@ -39,7 +39,7 @@ public class ProdutoDAO {
     // Retorna a Lista de produtos(objetos)
     public ArrayList getMinhaLista() {
 
-        MinhaLista.clear(); // Limpa ArrayList
+        getMinhaLista.clear(); // Limpa ArrayList
 
         try {
             try (Statement stmt = this.getConexao().createStatement()) {
@@ -61,7 +61,7 @@ public class ProdutoDAO {
                             preco,
                             data_cad
                     );
-                    MinhaLista.add(objeto);
+                    getMinhaLista.add(objeto);
 
                 }
             }
@@ -69,7 +69,7 @@ public class ProdutoDAO {
         } catch (SQLException ex) {
 
         }
-        return MinhaLista;
+        return getMinhaLista;
     }
 
     // Cadastra novo produto
@@ -146,4 +146,39 @@ public class ProdutoDAO {
         }
         return objeto;
     }
+
+        public ArrayList MinhaLista() {
+
+    getMinhaLista.clear();
+
+    String sql = "SELECT * FROM produto";
+
+    try (Connection conn = Connect.getConnection();
+         PreparedStatement stmt = conn.prepareStatement(sql);
+         ResultSet res = stmt.executeQuery()) {
+
+        while (res.next()) {
+            Produto p = new Produto(
+                res.getInt("id"),
+                res.getString("nome"),
+                res.getString("descricao"),
+                res.getInt("quantEstq"),
+                res.getDouble("preco"),
+                res.getDate("data_cad")
+            );
+            getMinhaLista.add(p);
+        }
+
+    } catch (Exception e) {
+        System.out.println("Erro ao carregar lista: " + e.getMessage());
+    }
+
+    return getMinhaLista;
+}
+
+    
+    
+    
+    
+    
 }
