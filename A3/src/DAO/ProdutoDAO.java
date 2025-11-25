@@ -27,6 +27,7 @@ public class ProdutoDAO {
             try (Statement stmt = this.getConexao().createStatement()) {
                 ResultSet res = stmt.executeQuery("SELECT MAX(id) id FROM produto");
                 res.next();
+                
                 maiorID = res.getInt("id");
             }
 
@@ -46,7 +47,7 @@ public class ProdutoDAO {
                 ResultSet res = stmt.executeQuery("SELECT * FROM produto");
                 while (res.next()) {
 
-                    int id = res.getInt("id");
+                    long id = res.getLong("id");
                     String nome = res.getString("nome");
                     String desc = res.getString("descricao");
                     int quantEstq = res.getInt("quantestq");
@@ -67,6 +68,7 @@ public class ProdutoDAO {
             }
 
         } catch (SQLException ex) {
+            System.out.print(ex.getMessage());
 
         }
         return getMinhaLista;
@@ -89,12 +91,12 @@ public class ProdutoDAO {
 
     // Deleta um produto espec�fico pelo seu campo ID
     public boolean DeleteProdutoBD(int id) {
-        try {
-            try (Statement stmt = this.getConexao().createStatement()) {
-                stmt.executeUpdate("DELETE FROM produto WHERE id = " + id);
-            }
+
+        try (Statement stmt = this.getConexao().createStatement()) {
+            stmt.executeUpdate("DELETE FROM produto WHERE id = " + id);
 
         } catch (SQLException erro) {
+            //TODO colocar ao menos um system out 
         }
 
         return true;
@@ -112,7 +114,7 @@ public class ProdutoDAO {
                 stmt.setInt(3, objeto.getQuantEstq());
                 stmt.setDouble(4, objeto.getPreco());
                 stmt.setDate(5, (java.sql.Date) objeto.getData_cad());
-                stmt.setInt(6, objeto.getId());
+                stmt.setLong(6, objeto.getId());
 
                 stmt.execute();
             }

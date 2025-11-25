@@ -8,7 +8,7 @@ import java.text.SimpleDateFormat;
 
 public class Produto {
 
-    private int id;
+    private long id;
     private String nome;
     private String desc;
     private int quantEstq;
@@ -22,7 +22,7 @@ public class Produto {
     public Produto() {
     }
 
-    public Produto(int id, String nome, String desc, int quantEstq, double preco, Date data_cad) {
+    public Produto(long id, String nome, String desc, int quantEstq, double preco, Date data_cad) {
         this.id = id;
         this.nome = nome;
         this.desc = desc;
@@ -32,11 +32,11 @@ public class Produto {
     }
 
     // GETTERS E SETTERS
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
