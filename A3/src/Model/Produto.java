@@ -15,7 +15,7 @@ public class Produto {
     private double preco;
     private Date data_cad;
 
-    // INSTÂNCIA DO DAO (correção)
+    // INSTÂNCIA DO DAO
     @SuppressWarnings("FieldMayBeFinal")
     private ProdutoDAO dao = new ProdutoDAO();
 
@@ -31,7 +31,6 @@ public class Produto {
         this.data_cad = data_cad;
     }
 
-    // GETTERS E SETTERS
     public long getId() {
         return id;
     }
@@ -80,7 +79,7 @@ public class Produto {
         this.data_cad = data_cad;
     }
 
-    // MÉTODOS DE BANCO DE DADOS
+    // métodos do banco
     @SuppressWarnings("FieldMayBeFinal")
     private List<Produto> minhaLista = new ArrayList<>();
 
@@ -103,7 +102,7 @@ public class Produto {
         }
     }
 
-    public boolean UpdateProdutoBD(int id, String desc, String nome, int quantEstq, double preco, String data_cad) {
+    public boolean UpdateProdutoBD(long id, String desc, String nome, int quantEstq, double preco, String data_cad) {
         try {
             // Converte a data (String) para Date
             SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
@@ -137,11 +136,11 @@ public class Produto {
     }
 }
 
-    private boolean UpdateProdutoBD(int id, String nome, String desc, int quantEstq, double preco, Date data) {
+    private boolean UpdateProdutoBD(long id, String nome, String desc, int quantEstq, double preco, Date data) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
-    public boolean DeleteProdutoBD(int id) {
+    public boolean DeleteProdutoBD(long id) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }

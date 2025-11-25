@@ -7,6 +7,7 @@ import javax.swing.table.DefaultTableModel;
 import DAO.ProdutoDAO;
 import com.formdev.flatlaf.themes.FlatMacDarkLaf;
 import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 
 public final class GerenciaProduto extends javax.swing.JFrame {
 
@@ -73,6 +74,8 @@ public final class GerenciaProduto extends javax.swing.JFrame {
                 "ID", "Nome", "Descrição", "Quantidade", "Preço", "Data do Cadastro"
             }
         ));
+        jTableProduto.setRowHeight(18);
+        jTableProduto.setShowGrid(false);
         jTableProduto.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jTableProdutoMouseClicked(evt);
@@ -154,51 +157,46 @@ public final class GerenciaProduto extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(jScrollPane1)
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(211, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1)
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 143, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(c_data_cad, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(c_preco, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(c_desc, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(c_quantEstq, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(c_nome, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(c_id, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(160, 160, 160))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(b_cancelar)
-                                .addGap(54, 54, 54)
-                                .addComponent(b_alterar)
-                                .addGap(53, 53, 53)
-                                .addComponent(b_apagar)
-                                .addGap(149, 149, 149))))))
+                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(c_data_cad, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(c_preco, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(c_quantEstq, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(c_desc)))
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(c_id, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(b_cancelar)
+                        .addGap(53, 53, 53)
+                        .addComponent(b_alterar)
+                        .addGap(53, 53, 53)
+                        .addComponent(b_apagar))
+                    .addComponent(c_nome))
+                .addGap(211, 211, 211))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 169, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
@@ -223,12 +221,12 @@ public final class GerenciaProduto extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(c_data_cad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
+                .addGap(33, 33, 33)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(b_cancelar)
                     .addComponent(b_alterar)
                     .addComponent(b_apagar))
-                .addGap(15, 15, 15))
+                .addGap(24, 24, 24))
         );
 
         pack();
@@ -242,50 +240,50 @@ public final class GerenciaProduto extends javax.swing.JFrame {
     private void b_alterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_alterarActionPerformed
 
         try {
-            // recebendo e validando dados da interface gr�fica.
-            int id = 0;
+            // recebendo e validando dados da interface grafica.
+            long id = 0;
             String nome = "";
             String desc = "";
             int quantEstq = 0;
             double preco = 0.0;
             String data_cad = "";
 
-            if (this.c_nome.getText().length() < 2) {
+            //.trim() usado para remover espaços
+            if (this.c_nome.getText().trim().length() < 2) {
                 throw new Mensagens("Nome deve conter ao menos 2 caracteres.");
-            } else {
-                nome = this.c_nome.getText();
+            }
+            nome = this.c_nome.getText().trim();
+
+            if (this.c_desc.getText().trim().isEmpty()) {
+                throw new Mensagens("Descrição deve conter ao menos 1 caractere.");
+            }
+            desc = this.c_desc.getText().trim();
+
+            if (this.c_quantEstq.getText().trim().isEmpty()) {
+                throw new Mensagens("Quantidade deve ser informada.");
             }
 
-            if (this.c_desc.getText().length() <= 0) {
-                throw new Mensagens("Idade deve ser n�mero e maior que zero.");
-            } else {
-                desc = (this.c_desc.getText());
+            quantEstq = Integer.parseInt(this.c_quantEstq.getText().trim());
+
+            if (this.c_preco.getText().trim().isEmpty()) {
+                throw new Mensagens("Preço deve ser informado.");
             }
 
-            if (this.c_quantEstq.getText().length() < 2) {
-                throw new Mensagens("Quantidade deve conter ao menos 1 caracteres.");
-            } else {
-                quantEstq = Integer.parseInt(this.c_desc.getText());
-            }
-
-            if (this.c_preco.getText().length() <= 0) {
-                throw new Mensagens("preço deve ser n�mero e maior que zero.");
-            } else {
-                preco = Integer.parseInt(this.c_quantEstq.getText());
-            }
+            preco = Double.parseDouble(this.c_preco.getText().trim());
 
             if (this.jTableProduto.getSelectedRow() == -1) {
-                throw new Mensagens("Primeiro Selecione um Produto para Alterar");
+                throw new Mensagens("Primeiro selecione um produto para alterar");
             } else {
-                id = Integer.parseInt(this.jTableProduto.getValueAt(this.jTableProduto.getSelectedRow(), 0).toString());
+                id = Long.parseLong(this.jTableProduto.getValueAt(this.jTableProduto.getSelectedRow(), 0).toString());
             }
 
             // envia os dados para o produto processar
-            if (this.objProduto.UpdateProdutoBD(id, desc, nome, quantEstq, preco, data_cad)) {
+           Produto p = new Produto(id, nome, desc, quantEstq, preco, null);
+           if (dao.UpdateProdutoBD(p)) {
 
                 // limpa os campos
-                this.c_nome.setText("");
                 this.c_id.setText("");
+                this.c_nome.setText("");
                 this.c_desc.setText("");
                 this.c_quantEstq.setText("");
                 this.c_preco.setText("");
@@ -297,7 +295,7 @@ public final class GerenciaProduto extends javax.swing.JFrame {
         } catch (Mensagens erro) {
             JOptionPane.showMessageDialog(null, erro.getMessage());
         } catch (NumberFormatException erro2) {
-            JOptionPane.showMessageDialog(null, "Informe um n�mero.");
+            JOptionPane.showMessageDialog(null, "Informe um número." + erro2.getMessage());
         } finally {
             carregaTabela(); // atualiza a tabela.
         }
@@ -307,11 +305,12 @@ public final class GerenciaProduto extends javax.swing.JFrame {
 
         if (this.jTableProduto.getSelectedRow() != -1) {
 
-            String nome;
-            nome = this.jTableProduto.getValueAt(this.jTableProduto.getSelectedRow(), 1).toString();
-            String descricao = this.jTableProduto.getValueAt(this.jTableProduto.getSelectedRow(), 2).toString();
-            String quantiade = this.jTableProduto.getValueAt(this.jTableProduto.getSelectedRow(), 3).toString();
+            String id = this.jTableProduto.getValueAt(this.jTableProduto.getSelectedRow(), 0).toString();
+            String nome = this.jTableProduto.getValueAt(this.jTableProduto.getSelectedRow(), 1).toString();
+            String desc = this.jTableProduto.getValueAt(this.jTableProduto.getSelectedRow(), 2).toString();
+            String quantEstq = this.jTableProduto.getValueAt(this.jTableProduto.getSelectedRow(), 3).toString();
             String preco = this.jTableProduto.getValueAt(this.jTableProduto.getSelectedRow(), 4).toString();
+            String data_cad = this.jTableProduto.getValueAt(this.jTableProduto.getSelectedRow(), 5).toString();
 
             this.c_id.setText(id);
             this.c_nome.setText(nome);
@@ -325,29 +324,29 @@ public final class GerenciaProduto extends javax.swing.JFrame {
 
     private void b_apagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_apagarActionPerformed
         try {
-            // validando dados da interface gr�fica.
-            int id = 0;
+            // validando dados da interface gráfica.
+            long id = 0;
             if (this.jTableProduto.getSelectedRow() == -1) {
                 throw new Mensagens("Primeiro Selecione um Produto para APAGAR");
             } else {
-                id = Integer.parseInt(this.jTableProduto.getValueAt(this.jTableProduto.getSelectedRow(), 0).toString());
+                id = Long.parseLong(this.jTableProduto.getValueAt(this.jTableProduto.getSelectedRow(), 0).toString());
             }
 
-            // retorna 0 -> primeiro bot�o | 1 -> segundo bot�o | 2 -> terceiro bot�o
+            // retorna 0 -> primeiro botão | 1 -> segundo botão | 2 -> terceiro botão
             int resposta_usuario = JOptionPane.showConfirmDialog(null, "Tem certeza que deseja APAGAR este Produto ?");
 
             if (resposta_usuario == 0) {// clicou em SIM
 
                 // envia os dados para o Aluno processar
-                if (this.objProduto.DeleteProdutoBD(id)) {
+                if (dao.DeleteProdutoBD(id)) {
 
                     // limpa os campos
                     this.c_id.setText(String.valueOf(id));
                     this.c_nome.setText(nome);
                     this.c_desc.setText(desc);
-                    this.c_quantEstq.setText(quant);
+                    this.c_quantEstq.setText(quantEstq);
                     this.c_preco.setText(preco);
-                    this.c_data_cad.setText(data);
+                    this.c_data_cad.setText(data_cad);
 
                     JOptionPane.showMessageDialog(rootPane, "Produto apagado com sucesso!");
 
@@ -388,31 +387,29 @@ public final class GerenciaProduto extends javax.swing.JFrame {
     /**
      */
     @SuppressWarnings("unchecked")
-public void carregaTabela() {
+    public void carregaTabela() {
 
-    DefaultTableModel modelo = (DefaultTableModel) this.jTableProduto.getModel();
-    modelo.setNumRows(0);
+        DefaultTableModel modelo = (DefaultTableModel) this.jTableProduto.getModel();
+        modelo.setNumRows(0);
 
-    ArrayList<Produto> lista = dao.getMinhaLista();
+        ArrayList<Produto> lista = dao.getMinhaLista();
 
-    for (Produto p : lista) {
-        modelo.addRow(new Object[]{
-            p.getId(),
-            p.getNome(),
-            p.getDesc(),
-            p.getQuantEstq(),
-            p.getPreco(),
-            p.getData_cad()
-        });
+        for (Produto p : lista) {
+            modelo.addRow(new Object[]{
+                p.getId(),
+                p.getNome(),
+                p.getDesc(),
+                p.getQuantEstq(),
+                p.getPreco(),
+                p.getData_cad()
+            });
+        }
     }
-}
-
 
     public static void main(String args[]) {
         try {
             UIManager.setLookAndFeel(new FlatMacDarkLaf());
-        } catch (Exception ex) {
-            ex.printStackTrace();
+        } catch (UnsupportedLookAndFeelException ex) {
         }
 
         UIManager.put("defaultFont", new java.awt.Font("SansSerif", java.awt.Font.PLAIN, 14));

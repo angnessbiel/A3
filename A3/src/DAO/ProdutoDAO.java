@@ -20,18 +20,19 @@ public class ProdutoDAO {
         return Connect.getConnection();
     }
 
-    public int maiorID() throws SQLException {
+    public long maiorID() throws SQLException {
 
-        int maiorID = 0;
+        long maiorID = 0;
         try {
             try (Statement stmt = this.getConexao().createStatement()) {
                 ResultSet res = stmt.executeQuery("SELECT MAX(id) id FROM produto");
                 res.next();
-                
-                maiorID = res.getInt("id");
+
+                maiorID = res.getLong("id");
             }
 
         } catch (SQLException ex) {
+            System.out.print(ex.getMessage());
         }
 
         return maiorID;
@@ -89,14 +90,14 @@ public class ProdutoDAO {
         conn.close();
     }
 
-    // Deleta um produto espec�fico pelo seu campo ID
-    public boolean DeleteProdutoBD(int id) {
+    // Deleta um produto específico pelo seu campo ID
+    public boolean DeleteProdutoBD(long id) {
 
         try (Statement stmt = this.getConexao().createStatement()) {
             stmt.executeUpdate("DELETE FROM produto WHERE id = " + id);
 
-        } catch (SQLException erro) {
-            //TODO colocar ao menos um system out 
+        } catch (SQLException ex) {
+            System.out.print(ex.getMessage());
         }
 
         return true;
@@ -105,7 +106,7 @@ public class ProdutoDAO {
     // Edita um produto espec�fico pelo seu campo ID
     public boolean UpdateProdutoBD(Produto objeto) {
 
-        String sql = "UPDATE produto SET nome = ?, descricao = ?, quantEstq = ?, preco = ?, data_cad = ? WHERE id = ?";
+        String sql = "UPDATE produto SET nome = ?, descricao = ?, quantEstq = ?, preco = ?  WHERE id = ?";
 
         try {
             try (PreparedStatement stmt = this.getConexao().prepareStatement(sql)) {
@@ -113,8 +114,7 @@ public class ProdutoDAO {
                 stmt.setString(2, objeto.getDesc());
                 stmt.setInt(3, objeto.getQuantEstq());
                 stmt.setDouble(4, objeto.getPreco());
-                stmt.setDate(5, (java.sql.Date) objeto.getData_cad());
-                stmt.setLong(6, objeto.getId());
+                stmt.setLong(5, objeto.getId());
 
                 stmt.execute();
             }
@@ -127,7 +127,7 @@ public class ProdutoDAO {
 
     }
 
-    public Produto carregaProduto(int id) {
+    public Produto carregaProduto(long id) {
 
         Produto objeto = new Produto();
         objeto.setId(id);
@@ -144,43 +144,37 @@ public class ProdutoDAO {
                 objeto.setData_cad(res.getDate("data_cad"));
             }
 
-        } catch (SQLException erro) {
+        } catch (SQLException ex) {
+            System.out.print(ex.getMessage());
         }
         return objeto;
     }
 
-        public ArrayList MinhaLista() {
+    public ArrayList MinhaLista() {
 
-    getMinhaLista.clear();
+        getMinhaLista.clear();
 
-    String sql = "SELECT * FROM produto";
+        String sql = "SELECT * FROM produto";
 
-    try (Connection conn = Connect.getConnection();
-         PreparedStatement stmt = conn.prepareStatement(sql);
-         ResultSet res = stmt.executeQuery()) {
+        try (Connection conn = Connect.getConnection(); PreparedStatement stmt = conn.prepareStatement(sql); ResultSet res = stmt.executeQuery()) {
 
-        while (res.next()) {
-            Produto p = new Produto(
-                res.getInt("id"),
-                res.getString("nome"),
-                res.getString("descricao"),
-                res.getInt("quantEstq"),
-                res.getDouble("preco"),
-                res.getDate("data_cad")
-            );
-            getMinhaLista.add(p);
+            while (res.next()) {
+                Produto p = new Produto(
+                        res.getLong("id"),
+                        res.getString("nome"),
+                        res.getString("descricao"),
+                        res.getInt("quantEstq"),
+                        res.getDouble("preco"),
+                        res.getDate("data_cad")
+                );
+                getMinhaLista.add(p);
+            }
+
+        } catch (Exception e) {
+            System.out.println("Erro ao carregar lista: " + e.getMessage());
         }
 
-    } catch (Exception e) {
-        System.out.println("Erro ao carregar lista: " + e.getMessage());
+        return getMinhaLista;
     }
 
-    return getMinhaLista;
-}
-
-    
-    
-    
-    
-    
 }
