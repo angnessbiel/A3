@@ -155,23 +155,21 @@ public class TelaPrincipal extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+   public static void main(String args[]) {
 
-        try {
-            UIManager.setLookAndFeel(new FlatMacDarkLaf());
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
-
-        UIManager.put("defaultFont", new java.awt.Font("SansSerif", java.awt.Font.PLAIN, 14));
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new TelaPrincipal().setVisible(true);
-            }
-        });
+    try {
+        UIManager.setLookAndFeel(new FlatMacDarkLaf());
+    } catch (Exception ex) {
+        ex.printStackTrace();
     }
+
+    UIManager.put("defaultFont", new java.awt.Font("SansSerif", java.awt.Font.PLAIN, 14));
+
+    // ABRE PRIMEIRO A TELA DE LOGIN
+    java.awt.EventQueue.invokeLater(() -> {
+        new TelaLogin().setVisible(true);
+    });
+}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu jMenu1;
