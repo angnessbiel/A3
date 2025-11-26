@@ -178,14 +178,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
     }
 
-    UIManager.put("defaultFont", new java.awt.Font("SansSerif", java.awt.Font.PLAIN, 14));
-
-    // ABRE PRIMEIRO A TELA DE LOGIN
-    java.awt.EventQueue.invokeLater(() -> {
-        new TelaLogin().setVisible(true);
-    });
-}
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton3;
