@@ -176,5 +176,56 @@ public class ProdutoDAO {
 
         return getMinhaLista;
     }
+    // Em DAO/ProdutoDAO.java
+
+    public List<Produto> listarTodosProdutos() {
+        List<Produto> lista = new ArrayList<>();
+
+        // 1. CORRIGIDO: Tabela 'produto' e colunas 'quantEstq' e 'descricao' (adicionada para o objeto Produto)
+        String sql = "SELECT id, nome, descricao, quantEstq, preco, data_cad FROM produto ORDER BY nome";
+
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+
+        try {
+            // CORRIGIDO: Conexão como você usa no resto da classe
+            conn = Connect.getConnection();
+            stmt = conn.prepareStatement(sql);
+            rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                Produto p = new Produto();
+
+                // 2. CORRIGIDO: Mapeamento de colunas de acordo com o seu DB
+                p.setId(rs.getLong("id")); // Seu ID é Long no resto do código
+                p.setNome(rs.getString("nome"));
+                p.setDesc(rs.getString("descricao")); // Adicionado mapeamento de descrição
+                p.setQuantEstq(rs.getInt("quantEstq"));
+                p.setPreco(rs.getDouble("preco"));
+                p.setData_cad(rs.getDate("data_cad")); // Mapeamento de data
+
+                lista.add(p);
+            }
+        } catch (SQLException e) {
+            System.err.println("Erro ao listar produtos para relatório: " + e.getMessage());
+        } finally {
+            // Fechar conexões (Adicionado)
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (stmt != null) {
+                    stmt.close();
+                }
+                if (conn != null) {
+                    conn.close(); 
+                }
+            } catch (SQLException e) {
+                System.err.println("Erro ao fechar conexão no relatório: " + e.getMessage());
+            }
+        }
+        return lista;
+    }
 
 }

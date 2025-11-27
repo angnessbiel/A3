@@ -5,6 +5,7 @@ import java.util.*;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import DAO.ProdutoDAO;
+import Principal.GeradorRelatorio;
 import com.formdev.flatlaf.themes.FlatMacLightLaf;
 import javax.swing.UIManager;
 import java.awt.Image;
@@ -68,6 +69,8 @@ public final class GerenciaProduto extends javax.swing.JFrame {
         c_nome = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         c_data_cad = new javax.swing.JTextField();
+        jPanel4 = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         b_cancelar = new javax.swing.JButton();
         b_alterar = new javax.swing.JButton();
@@ -130,6 +133,18 @@ public final class GerenciaProduto extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setBackground(new java.awt.Color(204, 204, 204));
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/download.png"))); // NOI18N
+        jButton1.setBorderPainted(false);
+        jButton1.setContentAreaFilled(false);
+        jButton1.setFocusPainted(false);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel4.add(jButton1);
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -161,16 +176,20 @@ public final class GerenciaProduto extends javax.swing.JFrame {
                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(c_desc, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(176, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(22, 22, 22))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(c_id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(24, 24, 24)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel2)
+                        .addComponent(c_id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(21, 21, 21)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(c_nome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
@@ -179,12 +198,13 @@ public final class GerenciaProduto extends javax.swing.JFrame {
                     .addComponent(jLabel3)
                     .addComponent(c_desc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(c_preco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel4)
-                        .addComponent(c_quantEstq, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(c_quantEstq, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel5)
+                        .addComponent(c_preco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
@@ -263,8 +283,8 @@ public final class GerenciaProduto extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 208, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 175, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -427,6 +447,34 @@ public final class GerenciaProduto extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_c_quantEstqActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    javax.swing.JFileChooser fileChooser = new javax.swing.JFileChooser();
+    fileChooser.setDialogTitle("Salvar Relatório de Produtos");
+    
+    // Sugere um nome de arquivo padrão
+    fileChooser.setSelectedFile(new java.io.File("Relatorio_Produtos.pdf"));
+
+    int userSelection = fileChooser.showSaveDialog(this);
+
+    if (userSelection == javax.swing.JFileChooser.APPROVE_OPTION) {
+        String caminhoCompleto = fileChooser.getSelectedFile().getAbsolutePath();
+        
+        if (!caminhoCompleto.toLowerCase().endsWith(".pdf")) {
+            caminhoCompleto += ".pdf";
+        }
+        
+        ProdutoDAO dao = new ProdutoDAO();
+        List<Produto> produtos = dao.listarTodosProdutos();
+
+        if (produtos.isEmpty()) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Nenhum produto encontrado para gerar o relatório.");
+            return;
+        }
+
+        GeradorRelatorio.gerarRelatorioProdutos(caminhoCompleto, produtos);
+    }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      */
     @SuppressWarnings("unchecked")
@@ -475,6 +523,7 @@ public final class GerenciaProduto extends javax.swing.JFrame {
     private javax.swing.JTextField c_nome;
     private javax.swing.JTextField c_preco;
     private javax.swing.JTextField c_quantEstq;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -484,6 +533,7 @@ public final class GerenciaProduto extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTableProduto;
     // End of variables declaration//GEN-END:variables

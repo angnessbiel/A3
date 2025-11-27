@@ -39,6 +39,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
         jPanel3 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
@@ -54,6 +55,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(4, 55, 65));
         jPanel3.setPreferredSize(new java.awt.Dimension(150, 550));
+        jPanel3.setLayout(new java.awt.GridBagLayout());
 
         jButton1.setBackground(new java.awt.Color(0, 114, 129));
         jButton1.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
@@ -66,6 +68,14 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.ipadx = 16;
+        gridBagConstraints.ipady = 30;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(52, 25, 0, 25);
+        jPanel3.add(jButton1, gridBagConstraints);
 
         jButton3.setBackground(new java.awt.Color(0, 114, 129));
         jButton3.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
@@ -77,6 +87,14 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 jButton3ActionPerformed(evt);
             }
         });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.ipadx = 18;
+        gridBagConstraints.ipady = 30;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(28, 25, 0, 25);
+        jPanel3.add(jButton3, gridBagConstraints);
 
         jButton4.setBackground(new java.awt.Color(0, 114, 129));
         jButton4.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
@@ -88,30 +106,14 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 jButton4ActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(25, Short.MAX_VALUE))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(52, 52, 52)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
-                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(202, Short.MAX_VALUE))
-        );
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.ipadx = 24;
+        gridBagConstraints.ipady = 30;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(28, 25, 202, 25);
+        jPanel3.add(jButton4, gridBagConstraints);
 
         getContentPane().add(jPanel3, java.awt.BorderLayout.WEST);
 
@@ -127,16 +129,16 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(355, Short.MAX_VALUE)
-                .addComponent(jLabel1)
+                .addGap(153, 153, 153)
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(129, 129, 129))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(14, 14, 14)
-                .addComponent(jLabel1)
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
+                .addContainerGap(10, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.NORTH);
