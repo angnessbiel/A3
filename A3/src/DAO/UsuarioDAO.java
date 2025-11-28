@@ -1,50 +1,66 @@
+package DAO;
 
-    package DAO;
+import model.Usuario;
+import util.Conexao;
 
-    import Model.Usuario;
-    import util.Conexao;
-    import java.sql.*;
-    import java.security.MessageDigest;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
+public class UsuarioDAO {
 
-    public class UsuarioDAO {
+    public boolean cadastrar(Usuario u) {
 
-          // Gera hash SHA-256
-        private String hashSenha(String senha) {
-            try {
-                MessageDigest md = MessageDigest.getInstance("SHA-256");
-                byte[] hash = md.digest(senha.getBytes("UTF-8"));
+        String sql = "INSERT INTO usuario (nome, email, senha) VALUES (?, ?, ?)";
 
-                StringBuilder hexString = new StringBuilder();
-                for (byte b : hash) {
-                    String hex = Integer.toHexString(0xff & b);
-                    if(hex.length() == 1) hexString.append('0');
-                    hexString.append(hex);
-                }
-                return hexString.toString();
+        try (Connection conn = Conexao.getConnection(); PreparedStatement stmt = conn.prepareStatement(sql)) {
 
-            } catch (Exception e) {
-                throw new RuntimeException(e);
-            }
-        }
+            stmt.setString(1, u.getNome());
+            stmt.setString(2, u.getEmail());
+            stmt.setString(3, u.getSenha());
 
-        public boolean autenticar(String username, String senha) {
+            stmt.executeUpdate();
+            return true;
 
-            String sql = "SELECT * FROM usuario WHERE username = ? AND senha = ?";
-
-            try (Connection con = Conexao.getConnection();
-                 PreparedStatement stmt = con.prepareStatement(sql)) {
-
-                stmt.setString(1, username);
-                stmt.setString(2, hashSenha(senha));
-
-                ResultSet rs = stmt.executeQuery();
-
-                return rs.next(); // true = autenticado
-
-            } catch (SQLException e) {
-                System.out.println("Erro ao autenticar: " + e.getMessage());
-                return false;
-            }
+        } catch (SQLException e) {
+            System.out.println("Erro ao cadastrar: " + e.getMessage());
+            return false;
         }
     }
+public Usuario autenticar(String email, String senha) {
+
+    String sql = "SELECT * FROM usuario WHERE email = ? AND senha = ?";
+
+    try (Connection conn = Conexao.getConnection();
+         PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+        stmt.setString(1, email);
+        stmt.setString(2, senha);
+
+        ResultSet rs = stmt.executeQuery();
+
+        if (rs.next()) {
+            Usuario u = new Usuario();
+            u.setId(rs.getInt("id"));
+            u.setNome(rs.getString("nome"));
+            u.setEmail(rs.getString("email"));
+            return u; // login OK
+        }
+
+    } catch (SQLException e) {
+        System.out.println("Erro ao autenticar: " + e.getMessage());
+    }
+
+    return null; // login falhou
+}
+
+
+
+
+
+
+
+
+
+
+}
