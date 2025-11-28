@@ -1,20 +1,31 @@
+
 package View;
+
+import DAO.UsuarioDAO;
+import javax.swing.JOptionPane;
 
 
 public class TelaLogin extends javax.swing.JFrame {
-    
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(TelaLogin.class.getName());
 
-   
+    private static final java.util.logging.Logger logger =
+            java.util.logging.Logger.getLogger(TelaLogin.class.getName());
+
+    // Componentes
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JTextField txtUser;
+    private javax.swing.JPasswordField txtSenha;
+    private javax.swing.JButton btnLogin;
+
     public TelaLogin() {
         initComponents();
         setLocationRelativeTo(null);
     }
 
-    @SuppressWarnings("unchecked")
     private void initComponents() {
 
-        JPanel1 = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         txtUser = new javax.swing.JTextField();
@@ -46,6 +57,7 @@ public class TelaLogin extends javax.swing.JFrame {
 
         btnLogin.addActionListener(evt -> autenticar());
 
+        // Layout principal
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
 
@@ -61,8 +73,10 @@ public class TelaLogin extends javax.swing.JFrame {
 
         pack();
     }
+    // --------------------------------------------------------------------
 
     private void autenticar() {
+
         String user = txtUser.getText();
         String senha = new String(txtSenha.getPassword());
 
@@ -78,8 +92,6 @@ public class TelaLogin extends javax.swing.JFrame {
         }
     }
 
-    
-    @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -99,7 +111,6 @@ public class TelaLogin extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-  
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
