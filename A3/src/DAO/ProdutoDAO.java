@@ -90,7 +90,7 @@ public class ProdutoDAO {
         conn.close();
     }
 
-    // Deleta um produto específico pelo seu campo ID
+    // Deleta um produto específico pelo seu ID
     public boolean DeleteProdutoBD(long id) {
 
         try (Statement stmt = this.getConexao().createStatement()) {
@@ -103,7 +103,7 @@ public class ProdutoDAO {
         return true;
     }
 
-    // Edita um produto espec�fico pelo seu campo ID
+    // Edita um produto específico pelo seu ID
     public boolean UpdateProdutoBD(Produto objeto) {
 
         String sql = "UPDATE produto SET nome = ?, descricao = ?, quantEstq = ?, preco = ?  WHERE id = ?";
@@ -181,7 +181,6 @@ public class ProdutoDAO {
     public List<Produto> listarTodosProdutos() {
         List<Produto> lista = new ArrayList<>();
 
-        // 1. CORRIGIDO: Tabela 'produto' e colunas 'quantEstq' e 'descricao' (adicionada para o objeto Produto)
         String sql = "SELECT id, nome, descricao, quantEstq, preco, data_cad FROM produto ORDER BY nome";
 
         Connection conn = null;
@@ -189,28 +188,24 @@ public class ProdutoDAO {
         ResultSet rs = null;
 
         try {
-            // CORRIGIDO: Conexão como você usa no resto da classe
             conn = Connect.getConnection();
             stmt = conn.prepareStatement(sql);
             rs = stmt.executeQuery();
 
             while (rs.next()) {
                 Produto p = new Produto();
-
-                // 2. CORRIGIDO: Mapeamento de colunas de acordo com o seu DB
-                p.setId(rs.getLong("id")); // Seu ID é Long no resto do código
+                p.setId(rs.getLong("id"));
                 p.setNome(rs.getString("nome"));
-                p.setDesc(rs.getString("descricao")); // Adicionado mapeamento de descrição
+                p.setDesc(rs.getString("descricao"));
                 p.setQuantEstq(rs.getInt("quantEstq"));
                 p.setPreco(rs.getDouble("preco"));
-                p.setData_cad(rs.getDate("data_cad")); // Mapeamento de data
+                p.setData_cad(rs.getDate("data_cad"));
 
                 lista.add(p);
             }
         } catch (SQLException e) {
             System.err.println("Erro ao listar produtos para relatório: " + e.getMessage());
         } finally {
-            // Fechar conexões (Adicionado)
             try {
                 if (rs != null) {
                     rs.close();

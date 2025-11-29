@@ -143,6 +143,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.NORTH);
 
+        painelPrincipal.setBackground(new java.awt.Color(215, 215, 215));
         painelPrincipal.setLayout(new java.awt.CardLayout());
         getContentPane().add(painelPrincipal, java.awt.BorderLayout.CENTER);
 
@@ -176,7 +177,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         UIManager.put("defaultFont", new Font("SansSerif", Font.PLAIN, 13));
 
         java.awt.EventQueue.invokeLater(() -> {
-            new TelaPrincipal().setVisible(true);
+            new TelaLogin().setVisible(true);
         });
     }
 

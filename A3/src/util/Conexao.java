@@ -1,6 +1,3 @@
-
-
-
 package util;
 
 import java.sql.Connection;
@@ -9,9 +6,9 @@ import java.sql.SQLException;
 
 public class Conexao {
 
-    private static final String URL = "jdbc:postgresql://localhost:5432/seubanco";
-    private static final String USER = "postgres";
-    private static final String PASS = "sua_senha";
+    private static final String URL = "jdbc:postgresql://blackzssj-1696.jxf.gcp-southamerica-east1.cockroachlabs.cloud:26257/invex_a3?sslmode=require";
+    private static final String USER = "jean";
+    private static final String PASS = "jAXTJ4CowRPCpB5HmpxZdA";
 
     public static Connection getConnection() {
         try {
@@ -22,5 +19,3 @@ public class Conexao {
         }
     }
 }
-
-    

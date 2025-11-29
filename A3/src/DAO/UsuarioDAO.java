@@ -1,8 +1,8 @@
 package DAO;
 
-import model.Usuario;
+import Model.Usuario;
 import util.Conexao;
-
+import java.sql.ResultSet;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -27,40 +27,31 @@ public class UsuarioDAO {
             return false;
         }
     }
-public Usuario autenticar(String email, String senha) {
 
-    String sql = "SELECT * FROM usuario WHERE email = ? AND senha = ?";
+    public Usuario autenticar(String email, String senha) {
 
-    try (Connection conn = Conexao.getConnection();
-         PreparedStatement stmt = conn.prepareStatement(sql)) {
+        String sql = "SELECT * FROM usuario WHERE email = ? AND senha = ?";
 
-        stmt.setString(1, email);
-        stmt.setString(2, senha);
+        try (Connection conn = Conexao.getConnection(); PreparedStatement stmt = conn.prepareStatement(sql)) {
 
-        ResultSet rs = stmt.executeQuery();
+            stmt.setString(1, email);
+            stmt.setString(2, senha);
 
-        if (rs.next()) {
-            Usuario u = new Usuario();
-            u.setId(rs.getInt("id"));
-            u.setNome(rs.getString("nome"));
-            u.setEmail(rs.getString("email"));
-            return u; // login OK
+            ResultSet rs = stmt.executeQuery();
+
+            if (rs.next()) {
+                Usuario u = new Usuario();
+                u.setId(rs.getLong("id"));
+                u.setNome(rs.getString("nome"));
+                u.setEmail(rs.getString("email"));
+                return u;
+            }
+
+        } catch (SQLException e) {
+            System.out.println("Erro ao autenticar: " + e.getMessage());
         }
 
-    } catch (SQLException e) {
-        System.out.println("Erro ao autenticar: " + e.getMessage());
+        return null;
     }
-
-    return null; // login falhou
-}
-
-
-
-
-
-
-
-
-
 
 }

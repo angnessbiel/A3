@@ -1,11 +1,11 @@
 
-package model;
+package Model;
 
 
 
 public class Usuario {
 
-    private int id;
+    private long id;
     private String nome;
     private String email;
     private String senha;
@@ -19,8 +19,8 @@ public class Usuario {
     }
 
     // getters e setters
-    public int getId() { return id; }
-    public void setId(int id) { this.id = id; }
+    public long getId() { return id; }
+    public void setId(long id) { this.id = id; }
 
     public String getNome() { return nome; }
     public void setNome(String nome) { this.nome = nome; }
