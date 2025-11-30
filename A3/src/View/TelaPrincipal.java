@@ -71,10 +71,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.ipadx = 16;
-        gridBagConstraints.ipady = 30;
+        gridBagConstraints.ipadx = 35;
+        gridBagConstraints.ipady = 42;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(52, 25, 0, 25);
+        gridBagConstraints.insets = new java.awt.Insets(81, 14, 0, 17);
         jPanel3.add(jButton1, gridBagConstraints);
 
         jButton3.setBackground(new java.awt.Color(0, 114, 129));
@@ -90,10 +90,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
-        gridBagConstraints.ipadx = 18;
-        gridBagConstraints.ipady = 30;
+        gridBagConstraints.ipadx = 37;
+        gridBagConstraints.ipady = 41;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(28, 25, 0, 25);
+        gridBagConstraints.insets = new java.awt.Insets(18, 14, 0, 17);
         jPanel3.add(jButton3, gridBagConstraints);
 
         jButton4.setBackground(new java.awt.Color(0, 114, 129));
@@ -109,37 +109,28 @@ public class TelaPrincipal extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
-        gridBagConstraints.ipadx = 24;
-        gridBagConstraints.ipady = 30;
+        gridBagConstraints.ipadx = 43;
+        gridBagConstraints.ipady = 40;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(28, 25, 202, 25);
+        gridBagConstraints.insets = new java.awt.Insets(18, 14, 93, 17);
         jPanel3.add(jButton4, gridBagConstraints);
 
         getContentPane().add(jPanel3, java.awt.BorderLayout.WEST);
 
         jPanel1.setBackground(new java.awt.Color(4, 55, 65));
         jPanel1.setPreferredSize(new java.awt.Dimension(495, 60));
+        jPanel1.setLayout(new java.awt.GridBagLayout());
 
         jLabel1.setFont(new java.awt.Font("SansSerif", 0, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(250, 250, 250));
         jLabel1.setText("Sistema de Estoque");
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(153, 153, 153)
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(129, 129, 129))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
-                .addContainerGap(10, Short.MAX_VALUE))
-        );
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.ipady = 4;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(18, 147, 6, 135);
+        jPanel1.add(jLabel1, gridBagConstraints);
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.NORTH);
 
@@ -177,7 +168,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         UIManager.put("defaultFont", new Font("SansSerif", Font.PLAIN, 13));
 
         java.awt.EventQueue.invokeLater(() -> {
-            new TelaLogin().setVisible(true);
+            new TelaPrincipal().setVisible(true);
         });
     }
 

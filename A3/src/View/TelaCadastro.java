@@ -11,6 +11,9 @@ public class TelaCadastro extends JFrame {
     public TelaCadastro() {
         initComponents();
         setLocationRelativeTo(null);
+        jTextField2.putClientProperty("JComponent.roundRect", true);
+        jTextField3.putClientProperty("JComponent.roundRect", true);
+        jPasswordField1.putClientProperty("JComponent.roundRect", true);
 
     }
 

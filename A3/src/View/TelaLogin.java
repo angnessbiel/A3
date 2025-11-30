@@ -15,6 +15,8 @@ public class TelaLogin extends javax.swing.JFrame {
     public TelaLogin() {
         initComponents();
         setLocationRelativeTo(null);
+        jTextField3.putClientProperty("JComponent.roundRect", true);
+        jPasswordField1.putClientProperty("JComponent.roundRect", true);
     }
 
     private void autenticar() {
