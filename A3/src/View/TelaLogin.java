@@ -84,6 +84,7 @@ public class TelaLogin extends javax.swing.JFrame {
 
         jPasswordField1.setMargin(new java.awt.Insets(5, 8, 5, 8));
 
+        jTextField3.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         jTextField3.setMargin(new java.awt.Insets(5, 8, 5, 8));
 
         jLabel2.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N

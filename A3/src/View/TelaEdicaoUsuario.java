@@ -2,6 +2,8 @@ package View;
 
 import javax.swing.JOptionPane;
 import DAO.UsuarioDAO;
+import com.formdev.flatlaf.themes.FlatMacLightLaf;
+import javax.swing.UIManager;
 
 public class TelaEdicaoUsuario extends javax.swing.JFrame {
 
@@ -12,16 +14,24 @@ public class TelaEdicaoUsuario extends javax.swing.JFrame {
         initComponents();
         this.idUsuarioLogado = idUsuario;
         setLocationRelativeTo(null);
+        txtNovoNome.putClientProperty("JComponent.roundRect", true);
+        txtSenhaAtual.putClientProperty("JComponent.roundRect", true);
+        txtNovaSenha.putClientProperty("JComponent.roundRect", true);
+
     }
 
     public TelaEdicaoUsuario() {
         initComponents();
         setLocationRelativeTo(null);
+        txtNovoNome.putClientProperty("JComponent.roundRect", true);
+        txtSenhaAtual.putClientProperty("JComponent.roundRect", true);
+        txtNovaSenha.putClientProperty("JComponent.roundRect", true);
     }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -30,103 +40,139 @@ public class TelaEdicaoUsuario extends javax.swing.JFrame {
         txtSenhaAtual = new javax.swing.JPasswordField();
         jLabel4 = new javax.swing.JLabel();
         txtNovaSenha = new javax.swing.JPasswordField();
+        jPanel1 = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
         btnSalvar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(215, 215, 215));
+        getContentPane().setLayout(new java.awt.GridBagLayout());
 
-        jLabel1.setBackground(new java.awt.Color(4, 55, 65));
-        jLabel1.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
-        jLabel1.setText("  Edição de Usuario");
-        jLabel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel1.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        jLabel1.setText("  Edição de Usuário");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.ipadx = 8;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(6, 6, 0, 0);
+        getContentPane().add(jLabel1, gridBagConstraints);
 
-        jLabel2.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         jLabel2.setLabelFor(txtNovoNome);
-        jLabel2.setText("Alterar Nome");
+        jLabel2.setText("Alterar Nome:");
+        jLabel2.setMaximumSize(new java.awt.Dimension(44, 19));
+        jLabel2.setMinimumSize(new java.awt.Dimension(44, 19));
+        jLabel2.setPreferredSize(new java.awt.Dimension(44, 19));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.ipadx = 54;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(12, 39, 0, 0);
+        getContentPane().add(jLabel2, gridBagConstraints);
 
-        txtNovoNome.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        txtNovoNome.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNovoNomeActionPerformed(evt);
-            }
-        });
+        txtNovoNome.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        txtNovoNome.setMargin(new java.awt.Insets(5, 8, 5, 8));
+        txtNovoNome.setName(""); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.ipadx = 277;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(6, 39, 0, 0);
+        getContentPane().add(txtNovoNome, gridBagConstraints);
 
-        jLabel3.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         jLabel3.setLabelFor(txtSenhaAtual);
-        jLabel3.setText("Senha Atual");
+        jLabel3.setText("Senha Atual:");
+        jLabel3.setMaximumSize(new java.awt.Dimension(44, 19));
+        jLabel3.setMinimumSize(new java.awt.Dimension(44, 19));
+        jLabel3.setPreferredSize(new java.awt.Dimension(44, 19));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.ipadx = 37;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(12, 39, 0, 0);
+        getContentPane().add(jLabel3, gridBagConstraints);
 
-        txtSenhaAtual.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtSenhaAtualActionPerformed(evt);
-            }
-        });
+        txtSenhaAtual.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        txtSenhaAtual.setMargin(new java.awt.Insets(5, 8, 5, 8));
+        txtSenhaAtual.setName(""); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.ipadx = 277;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(6, 39, 0, 0);
+        getContentPane().add(txtSenhaAtual, gridBagConstraints);
 
-        jLabel4.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         jLabel4.setLabelFor(txtNovaSenha);
-        jLabel4.setText("Nova Senha");
+        jLabel4.setText("Nova Senha:");
+        jLabel4.setMaximumSize(new java.awt.Dimension(44, 19));
+        jLabel4.setMinimumSize(new java.awt.Dimension(44, 19));
+        jLabel4.setPreferredSize(new java.awt.Dimension(44, 19));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.ipadx = 44;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(12, 39, 0, 0);
+        getContentPane().add(jLabel4, gridBagConstraints);
 
-        txtNovaSenha.addActionListener(new java.awt.event.ActionListener() {
+        txtNovaSenha.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        txtNovaSenha.setMargin(new java.awt.Insets(5, 8, 5, 8));
+        txtNovaSenha.setName(""); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.ipadx = 277;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(6, 39, 0, 0);
+        getContentPane().add(txtNovaSenha, gridBagConstraints);
+
+        jButton1.setText("Cancelar");
+        jButton1.setMaximumSize(new java.awt.Dimension(90, 30));
+        jButton1.setMinimumSize(new java.awt.Dimension(90, 30));
+        jButton1.setPreferredSize(new java.awt.Dimension(90, 30));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNovaSenhaActionPerformed(evt);
+                jButton1ActionPerformed(evt);
             }
         });
+        jPanel1.add(jButton1);
 
         btnSalvar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btnSalvar.setText("Salvar");
+        btnSalvar.setMaximumSize(new java.awt.Dimension(90, 30));
+        btnSalvar.setMinimumSize(new java.awt.Dimension(90, 30));
+        btnSalvar.setPreferredSize(new java.awt.Dimension(90, 30));
         btnSalvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSalvarActionPerformed(evt);
             }
         });
+        jPanel1.add(btnSalvar);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 718, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnSalvar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(txtNovoNome)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtSenhaAtual)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtNovaSenha, javax.swing.GroupLayout.DEFAULT_SIZE, 350, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(45, 45, 45)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtNovoNome, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtSenhaAtual, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtNovaSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnSalvar)
-                .addContainerGap(149, Short.MAX_VALUE))
-        );
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 7;
+        gridBagConstraints.gridwidth = 6;
+        gridBagConstraints.ipadx = 184;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(6, 0, 0, 0);
+        getContentPane().add(jPanel1, gridBagConstraints);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void txtNovoNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNovoNomeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNovoNomeActionPerformed
-
-    private void txtSenhaAtualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSenhaAtualActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtSenhaAtualActionPerformed
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
         String novoNome = txtNovoNome.getText().trim();
@@ -153,7 +199,7 @@ public class TelaEdicaoUsuario extends javax.swing.JFrame {
         UsuarioDAO dao = new UsuarioDAO();
 
         try {
-            // A. Se for alterar a senha, primeiro AUTENTICA
+            // Se for alterar a senha, primeiro AUTENTICA
             if (querAlterarSenha) {
                 String senhaArmazenada = dao.buscarSenhaAtual(this.idUsuarioLogado);
 
@@ -177,30 +223,21 @@ public class TelaEdicaoUsuario extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnSalvarActionPerformed
 
-    private void txtNovaSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNovaSenhaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNovaSenhaActionPerformed
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        this.setVisible(false);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
         try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ReflectiveOperationException | javax.swing.UnsupportedLookAndFeelException ex) {
-            logger.log(java.util.logging.Level.SEVERE, null, ex);
+            FlatMacLightLaf.setup();
+        } catch (Exception ex) {
+            System.err.println("Falha ao iniciar o Laf");
         }
-        //</editor-fold>
+
+        UIManager.put("defaultFont", new java.awt.Font("SansSerif", java.awt.Font.PLAIN, 13));
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> new TelaEdicaoUsuario().setVisible(true));
@@ -208,10 +245,12 @@ public class TelaEdicaoUsuario extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSalvar;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPasswordField txtNovaSenha;
     private javax.swing.JTextField txtNovoNome;
     private javax.swing.JPasswordField txtSenhaAtual;

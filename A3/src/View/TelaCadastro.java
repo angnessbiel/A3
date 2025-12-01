@@ -63,6 +63,7 @@ public class TelaCadastro extends JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jTextField2.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         jTextField2.setMargin(new java.awt.Insets(5, 8, 5, 8));
         jTextField2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -70,6 +71,7 @@ public class TelaCadastro extends JFrame {
             }
         });
 
+        jTextField3.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         jTextField3.setMargin(new java.awt.Insets(5, 8, 5, 8));
 
         jLabel1.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
@@ -102,6 +104,7 @@ public class TelaCadastro extends JFrame {
         jLabel4.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
         jLabel4.setText("Cadastro de Usuário");
 
+        jPasswordField1.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         jPasswordField1.setMargin(new java.awt.Insets(5, 8, 5, 8));
 
         jButton3.setFont(new java.awt.Font("Segoe UI", 2, 11)); // NOI18N
@@ -160,7 +163,7 @@ public class TelaCadastro extends JFrame {
                 .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 

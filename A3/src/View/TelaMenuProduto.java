@@ -58,7 +58,7 @@ public class TelaMenuProduto extends JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.ipadx = 71;
+        gridBagConstraints.ipadx = 70;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(174, 173, 0, 176);
         add(jButton1, gridBagConstraints);

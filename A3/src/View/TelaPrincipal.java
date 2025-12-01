@@ -10,7 +10,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private long idUsuarioLogado;
     private String nomeUsuarioLogado;
-
     private CardLayout cardLayout;
 
     GerenciaProduto objeto = new GerenciaProduto();
@@ -42,7 +41,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         TelaMenuProduto painelProduto = new TelaMenuProduto();
         TelaMenuUsuario painelUsuario = new TelaMenuUsuario(this.idUsuarioLogado);
 
-        // Se quiser uma tela inicial vazia ou de boas vindas:
         painelPrincipal.add(jPanel2, "home");
         painelPrincipal.add(painelProduto, "telaProduto");
         painelPrincipal.add(painelUsuario, "telaUsuario");
@@ -73,8 +71,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jPanel3.setLayout(new java.awt.GridBagLayout());
 
         jButton1.setBackground(new java.awt.Color(0, 114, 129));
-        jButton1.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        jButton1.setFont(new java.awt.Font("SansSerif", 0, 16)); // NOI18N
         jButton1.setForeground(new java.awt.Color(250, 250, 250));
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/package.png"))); // NOI18N
         jButton1.setText("Produto");
         jButton1.setInheritsPopupMenu(true);
         jButton1.setPreferredSize(new java.awt.Dimension(100, 60));
@@ -86,15 +85,16 @@ public class TelaPrincipal extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.ipadx = 35;
-        gridBagConstraints.ipady = 42;
+        gridBagConstraints.ipadx = 29;
+        gridBagConstraints.ipady = 40;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(81, 14, 0, 17);
         jPanel3.add(jButton1, gridBagConstraints);
 
         jButton3.setBackground(new java.awt.Color(0, 114, 129));
-        jButton3.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        jButton3.setFont(new java.awt.Font("SansSerif", 0, 16)); // NOI18N
         jButton3.setForeground(new java.awt.Color(250, 250, 250));
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/user.png"))); // NOI18N
         jButton3.setText("Usuário");
         jButton3.setPreferredSize(new java.awt.Dimension(100, 60));
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -105,15 +105,16 @@ public class TelaPrincipal extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
-        gridBagConstraints.ipadx = 37;
-        gridBagConstraints.ipady = 41;
+        gridBagConstraints.ipadx = 31;
+        gridBagConstraints.ipady = 40;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(18, 14, 0, 17);
         jPanel3.add(jButton3, gridBagConstraints);
 
         jButton4.setBackground(new java.awt.Color(0, 114, 129));
-        jButton4.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        jButton4.setFont(new java.awt.Font("SansSerif", 0, 16)); // NOI18N
         jButton4.setForeground(new java.awt.Color(250, 250, 250));
+        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/log-out.png"))); // NOI18N
         jButton4.setText("Sair");
         jButton4.setPreferredSize(new java.awt.Dimension(100, 60));
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -124,7 +125,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
-        gridBagConstraints.ipadx = 43;
+        gridBagConstraints.ipadx = 56;
         gridBagConstraints.ipady = 40;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(18, 14, 93, 17);
@@ -139,21 +140,16 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("SansSerif", 0, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(250, 250, 250));
         jLabel1.setText("Sistema de Estoque");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.ipady = 4;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(18, 6, 6, 276);
-        jPanel1.add(jLabel1, gridBagConstraints);
+        jPanel1.add(jLabel1, new java.awt.GridBagConstraints());
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.NORTH);
 
         painelPrincipal.setBackground(new java.awt.Color(215, 215, 215));
+        painelPrincipal.setPreferredSize(new java.awt.Dimension(580, 430));
         painelPrincipal.setLayout(new java.awt.CardLayout());
 
         lblBoasVindas.setBackground(new java.awt.Color(255, 255, 255));
-        lblBoasVindas.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblBoasVindas.setFont(new java.awt.Font("SansSerif", 0, 16)); // NOI18N
         lblBoasVindas.setForeground(new java.awt.Color(0, 0, 0));
         lblBoasVindas.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jPanel2.add(lblBoasVindas);
@@ -192,7 +188,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         UIManager.put("defaultFont", new Font("SansSerif", Font.PLAIN, 13));
 
         java.awt.EventQueue.invokeLater(() -> {
-            new TelaPrincipal().setVisible(true);
+            new TelaLogin().setVisible(true);
         });
     }
 
