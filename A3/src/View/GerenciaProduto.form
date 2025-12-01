@@ -222,6 +222,7 @@
         </Component>
         <Component class="javax.swing.JTextField" name="c_data_cad">
           <Properties>
+            <Property name="editable" type="boolean" value="false"/>
             <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
               <Insets value="[5, 8, 5, 8]"/>
             </Property>

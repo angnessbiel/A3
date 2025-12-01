@@ -124,6 +124,7 @@ public final class GerenciaProduto extends javax.swing.JFrame {
 
         jLabel6.setText("Data do Cadastro:");
 
+        c_data_cad.setEditable(false);
         c_data_cad.setMargin(new java.awt.Insets(5, 8, 5, 8));
         c_data_cad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -446,10 +447,6 @@ public final class GerenciaProduto extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_c_nomeActionPerformed
 
-    private void c_data_cadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c_data_cadActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_c_data_cadActionPerformed
-
     private void c_descActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c_descActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_c_descActionPerformed
@@ -485,6 +482,10 @@ public final class GerenciaProduto extends javax.swing.JFrame {
             GeradorRelatorio.gerarRelatorioProdutos(caminhoCompleto, produtos);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void c_data_cadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c_data_cadActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_c_data_cadActionPerformed
 
     @SuppressWarnings("unchecked")
     public void carregaTabela() {
