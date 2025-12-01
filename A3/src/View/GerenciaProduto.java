@@ -297,7 +297,7 @@ public final class GerenciaProduto extends javax.swing.JFrame {
         getContentPane().add(jPanel3, gridBagConstraints);
 
         jScrollPane1.setToolTipText("");
-        jScrollPane1.setPreferredSize(new java.awt.Dimension(620, 210));
+        jScrollPane1.setPreferredSize(new java.awt.Dimension(0, 0));
 
         jTableProduto.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         jTableProduto.setModel(new javax.swing.table.DefaultTableModel(
@@ -317,7 +317,7 @@ public final class GerenciaProduto extends javax.swing.JFrame {
         ));
         jTableProduto.setAutoscrolls(false);
         jTableProduto.setMaximumSize(new java.awt.Dimension(2147483647, 2147483647));
-        jTableProduto.setPreferredSize(new java.awt.Dimension(620, 210));
+        jTableProduto.setPreferredSize(null);
         jTableProduto.setRequestFocusEnabled(false);
         jTableProduto.setRowHeight(18);
         jTableProduto.setShowGrid(false);
