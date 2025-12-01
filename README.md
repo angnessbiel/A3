@@ -33,5 +33,6 @@ O projeto foi desenvolvido por:
 
 * **Eduardo Alves**
 * **Gabriel Mendes Angnes**
+* **Gustavo Giordani**
 * **Jean Arthur Fazio**
 * **Lucas Rodrigues**
