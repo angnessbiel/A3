@@ -144,7 +144,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         gridBagConstraints.gridy = 0;
         gridBagConstraints.ipady = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(18, 147, 6, 135);
+        gridBagConstraints.insets = new java.awt.Insets(18, 6, 6, 276);
         jPanel1.add(jLabel1, gridBagConstraints);
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.NORTH);
