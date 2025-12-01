@@ -33,9 +33,10 @@ public class TelaCadastro extends JFrame {
 
         if (dao.cadastrar(usuario)) {
             JOptionPane.showMessageDialog(null, "Usuário cadastrado com sucesso!");
-            jTextField2.setText("");
-            jTextField3.setText("");
-            jPasswordField1.setText("");
+            TelaLogin telaLogin = new TelaLogin();
+            telaLogin.setVisible(true);
+
+            this.dispose();
         } else {
             JOptionPane.showMessageDialog(null, "Erro ao cadastrar!");
         }
@@ -187,7 +188,7 @@ public class TelaCadastro extends JFrame {
     /**
      * @param args the command line arguments
      */
-   public static void main(String args[]) {
+    public static void main(String args[]) {
 
         try {
             FlatMacLightLaf.setup();
@@ -197,7 +198,6 @@ public class TelaCadastro extends JFrame {
 
         UIManager.put("defaultFont", new Font("SansSerif", Font.PLAIN, 13));
 
-        /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> new TelaCadastro().setVisible(true));
     }
 

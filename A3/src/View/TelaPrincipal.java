@@ -8,28 +8,42 @@ import javax.swing.UIManager;
 
 public class TelaPrincipal extends javax.swing.JFrame {
 
+    private long idUsuarioLogado;
+    private String nomeUsuarioLogado;
+
     private CardLayout cardLayout;
 
     GerenciaProduto objeto = new GerenciaProduto();
 
-    public TelaPrincipal() {
+    public TelaPrincipal(long idUsuario, String nomeUsuario) {
         initComponents();
+        this.idUsuarioLogado = idUsuario;
+        this.nomeUsuarioLogado = nomeUsuario;
         setLocationRelativeTo(null);
         meuInit();
 
+        exibirMensagemBoasVindas();
+
+    }
+
+    public TelaPrincipal() {
+        this(0, "Usuario test");
+    }
+
+    private void exibirMensagemBoasVindas() {
+        if (lblBoasVindas != null && nomeUsuarioLogado != null) {
+            lblBoasVindas.setText("Bem-vindo(a), " + this.nomeUsuarioLogado + "!");
+        }
     }
 
     private void meuInit() {
         cardLayout = (CardLayout) painelPrincipal.getLayout();
 
         TelaMenuProduto painelProduto = new TelaMenuProduto();
-        TelaMenuUsuario painelUsuario = new TelaMenuUsuario();
+        TelaMenuUsuario painelUsuario = new TelaMenuUsuario(this.idUsuarioLogado);
 
         // Se quiser uma tela inicial vazia ou de boas vindas:
-        javax.swing.JPanel painelVazio = new javax.swing.JPanel();
-        painelVazio.setBackground(Color.WHITE);
-
-        painelPrincipal.add(painelVazio, "home");
+        painelPrincipal.add(jPanel2, "home");
         painelPrincipal.add(painelProduto, "telaProduto");
         painelPrincipal.add(painelUsuario, "telaUsuario");
 
@@ -48,10 +62,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         painelPrincipal = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        lblBoasVindas = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Sistema de Estoque");
-        setPreferredSize(new java.awt.Dimension(700, 550));
 
         jPanel3.setBackground(new java.awt.Color(4, 55, 65));
         jPanel3.setPreferredSize(new java.awt.Dimension(150, 550));
@@ -136,6 +151,15 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         painelPrincipal.setBackground(new java.awt.Color(215, 215, 215));
         painelPrincipal.setLayout(new java.awt.CardLayout());
+
+        lblBoasVindas.setBackground(new java.awt.Color(255, 255, 255));
+        lblBoasVindas.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblBoasVindas.setForeground(new java.awt.Color(0, 0, 0));
+        lblBoasVindas.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jPanel2.add(lblBoasVindas);
+
+        painelPrincipal.add(jPanel2, "card2");
+
         getContentPane().add(painelPrincipal, java.awt.BorderLayout.CENTER);
 
         pack();
@@ -157,7 +181,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-   public static void main(String args[]) {
+    public static void main(String args[]) {
 
         try {
             FlatMacLightLaf.setup();
@@ -178,7 +202,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JLabel lblBoasVindas;
     private javax.swing.JPanel painelPrincipal;
     // End of variables declaration//GEN-END:variables
 }

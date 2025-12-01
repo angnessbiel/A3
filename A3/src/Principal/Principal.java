@@ -1,11 +1,11 @@
 package Principal;
 
-import View.TelaPrincipal;
+import View.TelaLogin;
 
 public class Principal {
 
     public static void main(String[] args) {
-        TelaPrincipal objetotela = new TelaPrincipal();
+        TelaLogin objetotela = new TelaLogin();
         objetotela.setVisible(true);
     }
     

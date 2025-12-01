@@ -30,8 +30,11 @@ public class TelaLogin extends javax.swing.JFrame {
 
         if (u != null) {
             JOptionPane.showMessageDialog(this, "Login realizado!");
+            
+            long idUsuarioLogado = u.getId();
+            String nomeUsuarioLogado = u.getNome();
 
-            TelaPrincipal tela = new TelaPrincipal();
+            TelaPrincipal tela = new TelaPrincipal(idUsuarioLogado, nomeUsuarioLogado);
             tela.setVisible(true);
 
             this.dispose();
