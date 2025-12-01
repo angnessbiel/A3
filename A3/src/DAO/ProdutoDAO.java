@@ -11,11 +11,13 @@ import java.sql.Statement;
 
 public class ProdutoDAO {
 
-    public static ArrayList getMinhaLista = new ArrayList<>();
+    // CORREÇÃO 1: Adicionar Generics <Produto>
+    public static ArrayList<Produto> getMinhaLista = new ArrayList<>();
 
     public ProdutoDAO() {
     }
 
+    // Assumindo que 'Connect' existe e tem o método getConnection()
     public Connection getConexao() {
         return Connect.getConnection();
     }
@@ -38,8 +40,8 @@ public class ProdutoDAO {
         return maiorID;
     }
 
-    // Retorna a Lista de produtos(objetos)
-    public ArrayList getMinhaLista() {
+    // CORREÇÃO 2: Retornar ArrayList<Produto>
+    public ArrayList<Produto> getMinhaLista() {
 
         getMinhaLista.clear(); // Limpa ArrayList
 
@@ -106,7 +108,7 @@ public class ProdutoDAO {
     // Edita um produto específico pelo seu ID
     public boolean UpdateProdutoBD(Produto objeto) {
 
-        String sql = "UPDATE produto SET nome = ?, descricao = ?, quantEstq = ?, preco = ?  WHERE id = ?";
+        String sql = "UPDATE produto SET nome = ?, descricao = ?, quantEstq = ?, preco = ? WHERE id = ?";
 
         try {
             try (PreparedStatement stmt = this.getConexao().prepareStatement(sql)) {
@@ -150,7 +152,8 @@ public class ProdutoDAO {
         return objeto;
     }
 
-    public ArrayList MinhaLista() {
+    // CORREÇÃO 3: Retornar ArrayList<Produto>
+    public ArrayList<Produto> MinhaLista() {
 
         getMinhaLista.clear();
 
@@ -176,8 +179,8 @@ public class ProdutoDAO {
 
         return getMinhaLista;
     }
-    // Em DAO/ProdutoDAO.java
-
+    
+    // Este método já estava usando Generics corretamente
     public List<Produto> listarTodosProdutos() {
         List<Produto> lista = new ArrayList<>();
 
@@ -214,7 +217,7 @@ public class ProdutoDAO {
                     stmt.close();
                 }
                 if (conn != null) {
-                    conn.close(); 
+                    conn.close();
                 }
             } catch (SQLException e) {
                 System.err.println("Erro ao fechar conexão no relatório: " + e.getMessage());

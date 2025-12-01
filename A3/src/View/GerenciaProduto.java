@@ -13,7 +13,7 @@ import javax.swing.ImageIcon;
 
 public final class GerenciaProduto extends javax.swing.JFrame {
 
-    private final Produto objProduto; // cria o v�nculo com o objproduto
+    private final Produto objProduto;
     private String nome;
     private String desc;
     private String quant;
@@ -385,6 +385,17 @@ public final class GerenciaProduto extends javax.swing.JFrame {
             this.c_preco.setText(preco);
             this.c_data_cad.setText(data_cad);
 
+            String data_cad_str;
+            Object dataObj = this.jTableProduto.getValueAt(this.jTableProduto.getSelectedRow(), 5);
+
+            if (dataObj instanceof Date) {
+                java.text.SimpleDateFormat formatador = new java.text.SimpleDateFormat("dd/MM/yyyy");
+                data_cad_str = formatador.format((Date) dataObj);
+            } else {
+                data_cad_str = dataObj.toString();
+            }
+
+            this.c_data_cad.setText(data_cad_str);
         }
     }//GEN-LAST:event_jTableProdutoMouseClicked
 
@@ -403,10 +414,8 @@ public final class GerenciaProduto extends javax.swing.JFrame {
 
             if (resposta_usuario == 0) {// clicou em SIM
 
-                // envia os dados para o Aluno processar
                 if (dao.DeleteProdutoBD(id)) {
 
-                    // limpa os campos
                     this.c_id.setText(String.valueOf(id));
                     this.c_nome.setText(nome);
                     this.c_desc.setText(desc);
@@ -415,7 +424,6 @@ public final class GerenciaProduto extends javax.swing.JFrame {
                     this.c_data_cad.setText(data_cad);
 
                     JOptionPane.showMessageDialog(rootPane, "Produto apagado com sucesso!");
-
                 }
 
             }
@@ -497,7 +505,9 @@ public final class GerenciaProduto extends javax.swing.JFrame {
                         return Integer.class;
                     case 4: // Preço [4] sacou ? numero = posiçoes
                         return Double.class;
-                    default: // Nome, Descrição, Data do Cadastro... sacou ? 
+                    case 5: // Data do Cadastro [5]
+                        return String.class;
+                    default: // Nome, Descrição... sacou ? 
                         return String.class;
                 }
             }
@@ -510,18 +520,23 @@ public final class GerenciaProduto extends javax.swing.JFrame {
             }
         };
 
+        java.text.SimpleDateFormat formatador = new java.text.SimpleDateFormat("dd/MM/yyyy");
+
         this.jTableProduto.setModel(modelo);
 
         ArrayList<Produto> lista = dao.getMinhaLista();
 
         for (Produto p : lista) {
+            Date dataObj = p.getData_cad();
+            String dataFormatada = (dataObj != null) ? formatador.format(dataObj) : "";
+
             modelo.addRow(new Object[]{
                 p.getId(),
                 p.getNome(),
                 p.getDesc(),
                 p.getQuantEstq(),
                 p.getPreco(),
-                p.getData_cad()
+                dataFormatada
             });
         }
 
