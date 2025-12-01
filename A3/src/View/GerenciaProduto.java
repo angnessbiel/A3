@@ -11,7 +11,6 @@ import javax.swing.UIManager;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 
-
 public final class GerenciaProduto extends javax.swing.JFrame {
 
     private final Produto objProduto; // cria o v�nculo com o objproduto
@@ -42,7 +41,6 @@ public final class GerenciaProduto extends javax.swing.JFrame {
         c_quantEstq.putClientProperty("JComponent.roundRect", true);
         c_preco.putClientProperty("JComponent.roundRect", true);
         c_data_cad.putClientProperty("JComponent.roundRect", true);
-        
 
     }
 
@@ -453,40 +451,66 @@ public final class GerenciaProduto extends javax.swing.JFrame {
     }//GEN-LAST:event_c_quantEstqActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-    javax.swing.JFileChooser fileChooser = new javax.swing.JFileChooser();
-    fileChooser.setDialogTitle("Salvar Relatório de Produtos");
-    
-    // Sugere um nome de arquivo padrão
-    fileChooser.setSelectedFile(new java.io.File("Relatorio_Produtos.pdf"));
+        javax.swing.JFileChooser fileChooser = new javax.swing.JFileChooser();
+        fileChooser.setDialogTitle("Salvar Relatório de Produtos");
 
-    int userSelection = fileChooser.showSaveDialog(this);
+        // Sugere um nome de arquivo padrão
+        fileChooser.setSelectedFile(new java.io.File("Relatorio_Produtos.pdf"));
 
-    if (userSelection == javax.swing.JFileChooser.APPROVE_OPTION) {
-        String caminhoCompleto = fileChooser.getSelectedFile().getAbsolutePath();
-        
-        if (!caminhoCompleto.toLowerCase().endsWith(".pdf")) {
-            caminhoCompleto += ".pdf";
+        int userSelection = fileChooser.showSaveDialog(this);
+
+        if (userSelection == javax.swing.JFileChooser.APPROVE_OPTION) {
+            String caminhoCompleto = fileChooser.getSelectedFile().getAbsolutePath();
+
+            if (!caminhoCompleto.toLowerCase().endsWith(".pdf")) {
+                caminhoCompleto += ".pdf";
+            }
+
+            ProdutoDAO dao = new ProdutoDAO();
+            List<Produto> produtos = dao.listarTodosProdutos();
+
+            if (produtos.isEmpty()) {
+                javax.swing.JOptionPane.showMessageDialog(this, "Nenhum produto encontrado para gerar o relatório.");
+                return;
+            }
+
+            GeradorRelatorio.gerarRelatorioProdutos(caminhoCompleto, produtos);
         }
-        
-        ProdutoDAO dao = new ProdutoDAO();
-        List<Produto> produtos = dao.listarTodosProdutos();
-
-        if (produtos.isEmpty()) {
-            javax.swing.JOptionPane.showMessageDialog(this, "Nenhum produto encontrado para gerar o relatório.");
-            return;
-        }
-
-        GeradorRelatorio.gerarRelatorioProdutos(caminhoCompleto, produtos);
-    }
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    /**
-     */
     @SuppressWarnings("unchecked")
     public void carregaTabela() {
 
-        DefaultTableModel modelo = (DefaultTableModel) this.jTableProduto.getModel();
-        modelo.setNumRows(0);
+        DefaultTableModel modelo = new DefaultTableModel(
+                new Object[][]{},
+                new String[]{
+                    "ID", "Nome", "Descrição", "Quantidade", "Preço", "Data do Cadastro"
+                }
+        ) {
+            // Sobrescrevendo getColumnClass para informar o tipo real de cada coluna caraio
+            @Override
+            public Class<?> getColumnClass(int columnIndex) {
+                switch (columnIndex) {
+                    case 0: // ID [0]
+                        return Long.class;
+                    case 3: // Quantidade [3] 
+                        return Integer.class;
+                    case 4: // Preço [4] sacou ? numero = posiçoes
+                        return Double.class;
+                    default: // Nome, Descrição, Data do Cadastro... sacou ? 
+                        return String.class;
+                }
+            }
+
+            // Torna a célula não editável. nem eu entendi oque eu fiz nao tente entender
+            // se ta funfando nao mexe kkk
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false;
+            }
+        };
+
+        this.jTableProduto.setModel(modelo);
 
         ArrayList<Produto> lista = dao.getMinhaLista();
 
@@ -499,6 +523,11 @@ public final class GerenciaProduto extends javax.swing.JFrame {
                 p.getPreco(),
                 p.getData_cad()
             });
+        }
+
+        if (jTableProduto.getColumnModel().getColumnCount() > 0) {
+            jTableProduto.getColumnModel().getColumn(0).setMinWidth(30);
+            jTableProduto.getColumnModel().getColumn(1).setMinWidth(30);
         }
     }
 
