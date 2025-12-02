@@ -199,11 +199,9 @@ public class TelaEdicaoUsuario extends javax.swing.JFrame {
         UsuarioDAO dao = new UsuarioDAO();
 
         try {
-            // Se for alterar a senha, primeiro AUTENTICA
             if (querAlterarSenha) {
-                String senhaArmazenada = dao.buscarSenhaAtual(this.idUsuarioLogado);
-
-                if (senhaArmazenada == null || !senhaAtualDigitada.equals(senhaArmazenada)) {
+                String senhaArmazenadaHash = dao.buscarSenhaAtual(this.idUsuarioLogado); // Busca o HASH do banco
+                if (senhaArmazenadaHash == null || !org.mindrot.jbcrypt.BCrypt.checkpw(senhaAtualDigitada, senhaArmazenadaHash)) {
                     JOptionPane.showMessageDialog(this, "A Senha Atual informada está incorreta.", "Erro de Autenticação", JOptionPane.ERROR_MESSAGE);
                     return; // Para o processo, pois a autenticação falhou
                 }
