@@ -80,7 +80,7 @@
           <Dimension value="[130, 70]"/>
         </Property>
         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[170, 70]"/>
+          <Dimension value="[180, 70]"/>
         </Property>
       </Properties>
       <Events>

@@ -49,7 +49,7 @@ public class TelaMenuProduto extends JPanel {
         jButton1.setText("Novo Produto");
         jButton1.setMaximumSize(new java.awt.Dimension(300, 300));
         jButton1.setMinimumSize(new java.awt.Dimension(130, 70));
-        jButton1.setPreferredSize(new java.awt.Dimension(170, 70));
+        jButton1.setPreferredSize(new java.awt.Dimension(180, 70));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
